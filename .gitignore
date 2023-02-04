@@ -8,6 +8,10 @@ application/logs/*
 
 !application/*/.htaccess
 
+/application/config/config.php
+
+/application/config/autoload
+
 tests/mocks/database/ci_test.sqlite
 
 user_guide_src/build/*
