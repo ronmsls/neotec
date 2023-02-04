@@ -5,9 +5,9 @@
 <h1> <center>Registro de Clientes</center> </h1>
 <form action="<?php echo site_url(); ?>/clientes/guardarCliente" method="post" id="frm_nuevo_cliente" enctype="multipart/form-data">
     <br>
-    <b>CEDULA DEL CLIENTE: </b>
+    <b>CEDULA O PASAPORTE DEL CLIENTE: </b>
    <br>
-    <input type="number" class="form-control" name="cedula_cliente" id= "cedula_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
+    <input type="text" class="form-control" name="cedula_cliente" id= "cedula_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
     <br>
     <b>NOMBRES DEL CLIENTE: </b>
     <br>
@@ -25,11 +25,13 @@
     <br>
     <input type="number" class="form-control" name="celular_cliente" id= "celular_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
     <br>
-    <br>
     <b>CORREO DEL CLIENTE: </b>
     <br>
     <input type="email" class="form-control"  name="correo_cliente" id= "correo_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
     <br>
+
+    <div id="map" style="height: 100px; width: 100%; "></div>    
+
     <b>CIUDAD DEL CLIENTE: </b>
     <br>
     <input type="text" class="form-control"  name="ciudad_cliente" id= "ciudad_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
@@ -77,12 +79,12 @@
 </div>
 
 
+
 <script type="text/javascript"> 
     $("#frm_nuevo_cliente").validate({
       rules:{
         cedula_cliente:{
           required:true,
-          digits: true,
           minlength:10,
     	    maxlength: 10,
           remote:{
@@ -164,34 +166,35 @@
       }
     });
 </script>
+
 <script>
-    let map;
+  function initMap() {
+    if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+    document.getElementById('ref_cliente').value = pos.lat;
+    document.getElementById('parroquia_cliente').value = pos.lng;
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
+    
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 17,
+      center: pos
+    });
+
+    var marker = new google.maps.Marker({
+      position: pos,
+      map: map
+    });
+  }, function() {
+    handleLocationError(true, infoWindow, map.getCenter());
   });
+} else {
+  // Browser doesn't support Geolocation
+  handleLocationError(false, infoWindow, map.getCenter());
 }
-
-window.initMap = initMap;
-  </script>
-  <style>
-    /* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
-#map {
-  height: 100%;
-}
-
-/* 
- * Optional: Makes the sample page fill the window. 
- */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-  </style>
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ka3BMCAd22ra5vuDn5SAjQomGc4UDCw&callback=initMap"></script>

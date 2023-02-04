@@ -35,7 +35,7 @@
     <script src="<?php echo base_url(); ?>/assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- Maps -->
-
+    
     <!-- Template Javascript -->
     <script src="<?php echo base_url(); ?>/assets/js/main.js"></script>
 </body>

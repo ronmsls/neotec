@@ -28,7 +28,47 @@
                 </div>
             </form>
             </div>
+<br>
+            <div class="row g-4">
+            <div class="row g-4">
+            <div id="map" style="height: 100px; width: 50%;"></div>
+
+            <script>
+
+  </script>         
+  </div>
+            </div>
         </div>
+        
     </div>
 </div>
 </div>
+
+<script>
+  function initMap() {
+    if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 8,
+      center: pos
+    });
+
+    var marker = new google.maps.Marker({
+      position: pos,
+      map: map
+    });
+  }, function() {
+    handleLocationError(true, infoWindow, map.getCenter());
+  });
+} else {
+  // Browser doesn't support Geolocation
+  handleLocationError(false, infoWindow, map.getCenter());
+}
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ka3BMCAd22ra5vuDn5SAjQomGc4UDCw&callback=initMap"></script>

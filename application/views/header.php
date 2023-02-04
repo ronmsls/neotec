@@ -42,6 +42,8 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <!-- Importacion de Jquery Validation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.4/jquery.validate.min.js" integrity="sha512-FOhq9HThdn7ltbK8abmGn60A/EMtEzIzv1rvuh+DqzJtSGq8BRdEN0U+j0iKEIffiw/yEtVuladk6rsG4X6Uqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.4/additional-methods.min.js" integrity="sha512-XJiEiB5jruAcBaVcXyaXtApKjtNie4aCBZ5nnFDIEFrhGIAvitoqQD6xd9ayp5mLODaCeaXfqQMeVs1ZfhKjRQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -104,7 +106,7 @@ b{
 }
 </style>
 
-
+<!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.0/js/fileinput.min.js" integrity="sha512-C9i+UD9eIMt4Ufev7lkMzz1r7OV8hbAoklKepJW0X6nwu8+ZNV9lXceWAx7pU1RmksTb1VmaLDaopCsJFWSsKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.0/css/fileinput.min.css" integrity="sha512-XHMymTWTeqMm/7VZghZ2qYTdoJyQxdsauxI4dTaBLJa8d1yKC/wxUXh6lB41Mqj88cPKdr1cn10SCemyLcK76A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <meta name="theme-color" content="#5CB85C">
@@ -118,7 +120,7 @@ b{
 <meta name="apple-mobile-web-app-title" content="gestion de usuarios">
 <link rel="manifest" href="<?php echo base_url(); ?>manifest.json">
 <script type="text/javascript" src="<?php echo base_url('script.js'); ?>"></script>
-
+-->
 </head>
 
 <body>
