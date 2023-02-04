@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'neotec',
+	'hostname' => 'us-cdbr-east-06.cleardb.net',
+	'username' => 'b3186d3817fdc4',
+	'password' => 'db1d5260',
+	'database' => 'heroku_4e7ec18ef338151',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
