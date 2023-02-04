@@ -9,10 +9,10 @@ application/logs/*
 !application/*/.htaccess
 
 application/config/*
-!application/config/config.php
+!application/config/config
 
 application/config/*
-!application/config/autoload.php
+!application/config/autoload
 
 tests/mocks/database/ci_test.sqlite
 
