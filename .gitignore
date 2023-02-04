@@ -10,7 +10,6 @@ application/logs/*
 
 
 
-/application/config/autoload
 
 tests/mocks/database/ci_test.sqlite
 
