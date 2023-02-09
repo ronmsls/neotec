@@ -118,6 +118,7 @@
         }
       }
     }
+#[AllowDynamicProperties]
 function Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$correo,$descripcionDec){
         $mes = date("m", strtotime($fecha));
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
