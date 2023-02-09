@@ -1,6 +1,6 @@
 
 <?php if ( ! defined('BASEPATH')) exit('No se permite el acceso directo al script');
-#[AllowDynamicProperties]
+
 require_once APPPATH.'third_party/mikrotik/api_mt_include2.php';
 
 class Conectar{
