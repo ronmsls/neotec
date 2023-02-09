@@ -118,6 +118,20 @@
         }
       }
     }
+function iso8859_1_to_utf8(string $s): string {
+    $s .= $s;
+    $len = \strlen($s);
+
+    for ($i = $len >> 1, $j = 0; $i < $len; ++$i, ++$j) {
+        switch (true) {
+            case $s[$i] < "\x80": $s[$j] = $s[$i]; break;
+            case $s[$i] < "\xC0": $s[$j] = "\xC2"; $s[++$j] = $s[$i]; break;
+            default: $s[$j] = "\xC3"; $s[++$j] = \chr(\ord($s[$i]) - 64); break;
+        }
+    }
+
+    return substr($s, 0, $j);
+}
 
 function Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$correo,$descripcionDec){
         $mes = date("m", strtotime($fecha));
