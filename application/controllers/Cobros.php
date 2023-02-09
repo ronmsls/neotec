@@ -22,7 +22,7 @@
           $data["mesesPagados"]=$this->cobro->consultarPorCliente($id_cliente); 
           $data["totalPagados"]=$this->cobro->cantidadPagosCliente($id_cliente);  
             $this->load->view('header');
-            $this->load->view("cobros/nuevoCobro",$data);
+            $this->load->view("Cobros/nuevoCobro",$data);
             $this->load->view('footer');
         }
 
