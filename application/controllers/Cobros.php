@@ -8,7 +8,6 @@
             $this->load->model("cobro");
             $this->load->model("plan");
             $this->load->library('GenerarPdf');
-            $this->load->library('conectarMikrotik'); 
             // validando si alguien esta conectado
           if ($this->session->userdata("usuario_Conectado")) {   
             // si esta conectado
@@ -91,7 +90,7 @@
               $megasE = $objetoPlan->meg_sub_plan*1000;
               $megasBjE = $objetoPlan->meg_baj_plan;
               $mgE=$megasE;
-              $this->conectarmikrotik->activar($cedula,$mgE);
+              activar($cedula,$mgE);
               $this->generarpdf->Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$correo,$descripcionDec);
               //$this->conectarmikrotik->conectar($direccion_ip,$nombreCompleto,$mg,$cedula); 
               redirect("clientes/detallesCliente/$id_cliente/$id_plan");
@@ -117,5 +116,32 @@
 
         }
       }
+    }
+function activar($comment, $maxlimit){
+    $ipRouteros="170.244.209.28";  // tu RouterOS.
+    $Username="api-tesis";
+    $Pass="12345678";
+    $api_puerto=8798;
+    $API = new RouterosAPI();
+    $API->debug = false;
+    if ($API->connect($ipRouteros , $Username , $Pass, $api_puerto)) {
+        $API->write("/queue/simple/getall", false);
+        $API->write('?comment=' .$comment, true);
+        $READ = $API->read(false);
+        $ARRAY = $API->parseResponse($READ);
+        if(count($ARRAY)>0){ // si el nombre de usuario "ya existe" lo edito
+            $API->write("/queue/simple/set",false);
+            $API->write("=.id=".$ARRAY[0]['.id'],false);
+            $a=$maxlimit*1000;
+            $API->write('=max-limit='."$a/$a",true);     //   2M/2M   [TX/RX]
+            $READ = $API->read(true);
+            $ARRAY = $API->parseResponse($READ);
+         } else {
+            echo "Error: el cliente no existe.";
+        }
+    }
+    
+    $API->disconnect();
+    
     }
 ?>
