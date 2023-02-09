@@ -25,6 +25,7 @@
                 return false;
             }
         }
+        
 
     //consultar los estados true
     public function consultarActivos(){

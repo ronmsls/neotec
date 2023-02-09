@@ -26,11 +26,19 @@
             $this->load->view('footer');
         }
 
-        //vista general para mostrar una lista de clientes
+
         public function listaCobros(){
           $data["listadoClientes"]=$this->cliente->consultarActivos();
             $this->load->view('header');
             $this->load->view("cobros/listaCobros",$data);
+            $this->load->view('footer');
+        }
+
+        
+        public function cobrosEmitidos(){
+          $data["listadoCobros"]=$this->cobro->consultarTodos();
+            $this->load->view('header');
+            $this->load->view("cobros/cobrosEmitidos",$data);
             $this->load->view('footer');
         }
 
@@ -44,7 +52,7 @@
           $cedula=$this->input->post('cedula_cliente');
           $telefono=$this->input->post('celular_cliente');
           $direccion=$this->input->post('direccion_cliente');
-          $correo=$this->input->post('correo_cliente');
+          $correo=$this->input->post('correo_cliente'); 
           //fecha actual
           $fechaEntera = date('Y-m-d');
           $fechaMes = time();
@@ -78,12 +86,13 @@
               //extraer datos del plan
               $dataPlan=array($this->plan->consultarPorId($fk_id_plan));
               $objetoPlan = $dataPlan[0];
+              $descripcionDec= $objetoPlan->detalles_plan;
               $megasE = $objetoPlan->meg_sub_plan*1000;
               $megasBjE = $objetoPlan->meg_baj_plan;
               $mgE=$megasE;
               $this->conectarmikrotik->activar($cedula,$mgE);
-              //$this->conectarmikrotik->conectar($direccion_ip,$nombreCompleto,$mg,$cedula);
-              $this->generarpdf->Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$correo); 
+              $this->generarpdf->Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$correo,$descripcionDec);
+              //$this->conectarmikrotik->conectar($direccion_ip,$nombreCompleto,$mg,$cedula); 
               redirect("clientes/detallesCliente/$id_cliente/$id_plan");
               
 

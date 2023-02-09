@@ -27,9 +27,6 @@ $septiembre;$octubre;$noviembre;$diciembre;
             <b>CORREO ELECTRÓNICO DEL CLIENTE: </b>
             <br><br>
             <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->correo_cliente; ?>" aria-label="default input example">
-            <b>PARROQUIA DEL CLIENTE: </b>
-            <br><br>
-            <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->parroquia_cliente; ?>" aria-label="default input example">
         </div>
     </div>
 </div>

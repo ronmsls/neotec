@@ -44,8 +44,14 @@
 //funcion para obtener la ultima fecha
   public function fechaFinal($id_cliente){
     $sql = "SELECT MONTH(`fecha_pago`) as mes FROM `pago` WHERE `fk_id_cliente`=$id_cliente ORDER by `id_pago` DESC LIMIT 1";
+    $sql2 = "SELECT MONTH(`fecha_pago`) as mes2 FROM `pago`  ORDER by `id_pago` DESC LIMIT 1";
+    $query2 = $this->db->query($sql2);
     $query = $this->db->query($sql);
-    return $query->row()->mes;
+    if($query->num_rows()==0){
+      return $query2->row()->mes2;
+    }else{
+      return $query->row()->mes;
+    }
 }
 
     //funcion para buscar el mismo numero de cedula

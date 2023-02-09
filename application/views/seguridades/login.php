@@ -56,7 +56,7 @@
       <div class="avatar">
         <img src="<?php echo base_url(); ?>/assets/css/avatar.png"/>
       </div>
-      <h2>Iniciar Sesión hh</h2>
+      <h2 style="color: white">Iniciar Sesión</h2>
       <h3></h3>
 
       <form class="login-form" action="<?php echo site_url(); ?>/seguridades/autenticarUsuario" method="post">

@@ -13,24 +13,24 @@
     <b>DIRECCIÓN DEL CLIENTE: </b>
     <br><br>
     <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->direccion_cliente; ?>" aria-label="default input example">
-    </div>
-</div>
-<div class="col-sm-12 col-xl-6">
-    <div class="bg-secondary rounded h-100 p-4">
     <b>CELULAR DEL CLIENTE: </b>
     <br><br>
     <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->celular_cliente; ?>" aria-label="default input example">
     <b>CORREO ELECTRÓNICO DEL CLIENTE: </b>
     <br><br>
     <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->correo_cliente; ?>" aria-label="default input example">
-    <b>PARROQUIA DEL CLIENTE: </b>
-    <br><br>
-    <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->parroquia_cliente; ?>" aria-label="default input example">
     </div>
+    
+</div>
+<div class="col-sm-12 col-xl-6">
+<br><br>
+<b>UBICACIÓN: </b>
+<br><br>
+<div id="map" style="height: 360px; width: 320px; display: grid; align-items: center;"></div>  
+<br>
 </div>
 </div>
 </div>  
-
 
 <div class="container-fluid pt-4 px-4">
         <div class="row bg-secondary rounded  justify-content-left mx-0">
@@ -442,12 +442,32 @@
                                     <?php endif; ?>
                                   </div>
 </div>
-
 </div>
 </div>
-
-
+<br>
 </div>
+<?php
+  // Cargar los datos de latitud y longitud desde la base de datos
+  $latitud = $listadoClientesID->latitud_cliente;
+  $longitud = $listadoClientesID->longitud_cliente;
+?>
+<script type="text/javascript"> 
+ var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: <?php echo $latitud; ?>, lng: <?php echo $longitud; ?>},
+          zoom: 18
+        });
+        var marker = new google.maps.Marker({
+          position: {lat: <?php echo $latitud; ?>, lng: <?php echo $longitud; ?>},
+          map: map,
+	  title: 'Acuario de Gijón'
+        });
+      }
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ka3BMCAd22ra5vuDn5SAjQomGc4UDCw&callback=initMap"></script>
+
 
 <script type="text/javascript">
 $(document).ready(function () {
@@ -466,7 +486,6 @@ $(document).ready(function () {
     });
 });
 </script>
-
 
 <script>
   document.getElementById("checkbox").addEventListener("change", function() {

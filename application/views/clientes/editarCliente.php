@@ -5,6 +5,8 @@
 <h1> <center>EDITAR CLIENTE</center> </h1>
 <form action="<?php echo site_url(); ?>/clientes/actualizarClientes" method="post" id="frm_nuevo_cliente" enctype="multipart/form-data">
     <input type="hidden" name="id_cliente" id="id_cliente" class="form-control" value="<?php echo $listadoClientesID->id_cliente; ?>" required >     
+    <input type="hidden" name="latitud_cliente" id="latitud_cliente" class="form-control" value="<?php echo $listadoClientesID->latitud_cliente; ?>" required >     
+    <input type="hidden" name="longitud_cliente" id="longitud_cliente" class="form-control" value="<?php echo $listadoClientesID->longitud_cliente; ?>" required >     
     <br>
     <b>CEDULA DEL CLIENTE: </b>
    <br>
@@ -29,18 +31,6 @@
     <b>CORREO DEL CLIENTE: </b>
     <br>
     <input type="email" class="form-control"  name="correo_cliente" id= "correo_cliente" value="<?php echo $listadoClientesID->correo_cliente; ?>"  class="form-control input-sm " required autocomplete="off">
-    <br>
-    <b>CIUDAD DEL CLIENTE: </b>
-    <br>
-    <input type="text" class="form-control"  name="ciudad_cliente" id= "ciudad_cliente" value="<?php echo $listadoClientesID->ciudad_cliente; ?>"  class="form-control input-sm " required autocomplete="off">
-    <br>
-    <b>PARROQUIA DEL CLIENTE: </b>
-    <br>
-    <input type="text" class="form-control"  name="parroquia_cliente" id= "parroquia_cliente" value="<?php echo $listadoClientesID->parroquia_cliente; ?>"  class="form-control input-sm " required autocomplete="off">
-    <br>
-    <b>REFERENCIA INSTALACIÓN DEL CLIENTE: </b>
-    <br>
-    <input type="text" class="form-control"  name="ref_cliente" id= "ref_cliente" value="<?php echo $listadoClientesID->ref_cliente; ?>"  class="form-control input-sm " required autocomplete="off">
     <br>
     <b>SELECCIONE EL PLAN: </b>
     <br>
@@ -88,7 +78,9 @@
     $("#frm_nuevo_cliente").validate({
       rules:{
         cedula_cliente:{
-          required:true
+          required:true,
+          minlength:10,
+    	    maxlength: 10
         },
         nombre_cliente:{
           letras:true,
@@ -105,21 +97,14 @@
         },
         correo_cliente:{ 
           required:true
-        },
-        ciudad_cliente:{
-          required:true
-        },
-        parroquia_cliente:{
-          required:true
-        },
-        ref_cliente:{
-          required:true
         }
       },
       messages:{
 
         cedula_cliente:{
-          required:"Porfavor ingrese la cedula del cliente"
+          required:"Porfavor ingrese la cedula del cliente",
+          minlength:"La cedula debe tener minimo 10 digitos",
+    		  maxlength: "La cedula solo debe tener 10 digitos",
         },
         nombre_cliente:{
           required:"Porfavor ingrese los nombres del cliente",
@@ -141,12 +126,6 @@
         },
         correo_cliente:{
           required:"Porfavor ingrese el correo electrónico del cliente"
-        },
-        parroquia_cliente:{
-          required:"Porfavor ingrese la parroquia del cliente"
-        },
-        ref_cliente:{
-          required:"Porfavor ingreseuna referencia de la instalación del cliente"
         }
 
       }

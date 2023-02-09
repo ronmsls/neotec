@@ -13,7 +13,7 @@
           }
         }
         public function nuevoUsuario(){
-            $data["listadoRoles"]=$this->rol->consultarTodos();
+            $data["listadoRoles"]=$this->rol->consultarTodosExtra();
             $this->load->view('header');
             $this->load->view("usuarios/nuevoUsuario", $data);
            $this->load->view('footer');

@@ -29,13 +29,7 @@
             </form>
             </div>
 <br>
-            <div class="row g-4">
-            <div class="row g-4">
-            <div id="map" style="height: 100px; width: 50%;"></div>
-
-            <script>
-
-  </script>         
+       
   </div>
             </div>
         </div>

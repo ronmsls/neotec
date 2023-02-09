@@ -29,20 +29,9 @@
     <br>
     <input type="email" class="form-control"  name="correo_cliente" id= "correo_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
     <br>
-
     <div id="map" style="height: 100px; width: 100%; "></div>    
-
-    <b>CIUDAD DEL CLIENTE: </b>
-    <br>
-    <input type="text" class="form-control"  name="ciudad_cliente" id= "ciudad_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
-    <br>
-    <b>PARROQUIA DEL CLIENTE: </b>
-    <br>
-    <input type="text" class="form-control"  name="parroquia_cliente" id= "parroquia_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
-    <br>
-    <b>REFERENCIA INSTALACIÓN DEL CLIENTE: </b>
-    <br>
-    <input type="text" class="form-control"  name="ref_cliente" id= "ref_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
+    <input type="hidden" class="form-control"  name="longitud_cliente" id= "longitud_cliente"value=""  class="form-control input-sm " >
+    <input type="hidden" class="form-control"  name="latitud_cliente" id= "latitud_cliente"value=""  class="form-control input-sm " >
     <br>
     <b>SELECCIONE EL PLAN: </b>
     <br>
@@ -115,15 +104,6 @@
         },
         correo_cliente:{
           required:true
-        },
-        ciudad_cliente:{
-          required:true
-        },
-        parroquia_cliente:{
-          required:true
-        },
-        ref_cliente:{
-          required:true
         }
       },
       messages:{
@@ -155,12 +135,6 @@
         },
         correo_cliente:{
           required:"Porfavor ingrese el correo electrónico del cliente"
-        },
-        parroquia_cliente:{
-          required:"Porfavor ingrese la parroquia del cliente"
-        },
-        ref_cliente:{
-          required:"Porfavor ingreseuna referencia de la instalación del cliente"
         }
 
       }
@@ -175,8 +149,8 @@
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
-    document.getElementById('ref_cliente').value = pos.lat;
-    document.getElementById('parroquia_cliente').value = pos.lng;
+    document.getElementById('latitud_cliente').value = pos.lat;
+    document.getElementById('longitud_cliente').value = pos.lng;
 
     
     var map = new google.maps.Map(document.getElementById('map'), {

@@ -81,7 +81,7 @@ function activar($comment, $maxlimit){
             $API->write("/queue/simple/set",false);
             $API->write("=.id=".$ARRAY[0]['.id'],false);
             $a=$maxlimit*1000;
-            $API->write('=max-limit='."$a/$a",true);    //   2M/2M   [TX/RX]
+            $API->write('=max-limit='."$a/$a",true);     //   2M/2M   [TX/RX]
             $READ = $API->read(true);
             $ARRAY = $API->parseResponse($READ);
          } else {

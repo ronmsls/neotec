@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No se permite el acceso directo al script');
   class GenerarPdf{
 
-    function Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$correo){
+    function Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$correo,$descripcionDec){
         $mes = date("m", strtotime($fecha));
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
          $meses[$mes-1];
@@ -62,16 +62,15 @@
 
 
 
-    /*----------  Detalles de la tabla  ----------*/
-    $pdf->MultiCell(0,7,utf8_decode("Nombre de producto a vender"),0,'C',false);
-    $pdf->Cell(10,4,utf8_decode("7"),0,0,'C');
-    $pdf->Cell(19,4,utf8_decode("$precio"),0,0,'C');
-    //$pdf->Cell(10,4,utf8_decode("Nombre de producto a vender"),0,0,'C');
-    $pdf->Cell(28,4,utf8_decode("$70.00 USD"),0,0,'C');
-    $pdf->Ln(4);
-
-    /*----------  Fin Detalles de la tabla  ----------*/
-
+     /*----------  Detalles de la tabla  ----------*/
+     $pdf->MultiCell(0,7,utf8_decode("$descripcionDec"),0,'C',false);
+     $pdf->Cell(10,4,utf8_decode("1"),0,0,'C');
+     $pdf->Cell(19,4,utf8_decode("$precio"),0,0,'C');
+     $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
+     $pdf->Cell(28,4,utf8_decode("$precio USD"),0,0,'C');
+     $pdf->Ln(4);
+ 
+     /*----------  Fin Detalles de la tabla  ----------*/
 
 
     $pdf->Cell(72,5,utf8_decode("-------------------------------------------------------------------"),0,0,'C');
@@ -83,11 +82,6 @@
     $pdf->Cell(22,5,utf8_decode("SUBTOTAL"),0,0,'C');
     $pdf->Cell(32,5,utf8_decode("$precio"),0,0,'C');
 
-    $pdf->Ln(5);
-
-    $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
-    $pdf->Cell(22,5,utf8_decode("IVA (13%)"),0,0,'C');
-    $pdf->Cell(32,5,utf8_decode("$precio USD"),0,0,'C');
 
     $pdf->Ln(5);
 
@@ -97,35 +91,25 @@
 
     $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
     $pdf->Cell(22,5,utf8_decode("TOTAL A PAGAR"),0,0,'C');
-    $pdf->Cell(32,5,utf8_decode("$70.00 USD"),0,0,'C');
+    $pdf->Cell(32,5,utf8_decode("$precio USD"),0,0,'C');
 
-    $pdf->Ln(5);
-
-    $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
-    $pdf->Cell(22,5,utf8_decode("USTED AHORRA"),0,0,'C');
-    $pdf->Cell(32,5,utf8_decode("$0.00 USD"),0,0,'C');
 
     $pdf->Ln(10);
 
-    $pdf->MultiCell(0,5,utf8_decode("*** Precios de productos incluyen impuestos. Para poder realizar un reclamo o devolución debe de presentar este ticket ***"),0,'C',false);
+    $pdf->MultiCell(0,5,utf8_decode("*** Para poder realizar un reclamo debe de presentar este ticket ***"),0,'C',false);
 
     $pdf->SetFont('Arial','B',9);
-    $pdf->Cell(0,7,utf8_decode("Gracias por su compra"),'',0,'C');
+    $pdf->Cell(0,7,utf8_decode("Gracias por su pago"),'',0,'C');
 
     $pdf->Ln(9);
     
-    # Codigo de barras #
-    $pdf->Code128(5,$pdf->GetY(),"COD000001V0001",70,20);
-    $pdf->SetXY(0,$pdf->GetY()+21);
-    $pdf->SetFont('Arial','',14);
-    $pdf->MultiCell(0,5,utf8_decode("COD000001V0001"),0,'C',false);
     
     # Nombre del archivo PDF #
     $pdf->Output("I","Ticket_1.pdf",true);
       
     $doc = $pdf->Output('','S');
 
-    $emailDestinatario="$correo";
+    $emailDestinatario=$correo;
     $asunto="Comprobante de pago"; 
     $contenido="Comprobante de pago de la fecha, $fecha";
     $adjunto=$doc;

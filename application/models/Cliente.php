@@ -47,7 +47,7 @@
 
     //funcion para listar datos por id
     public function consultarPorId($id_cliente){
-        $this->db->where('id_cliente',$id_cliente);
+        $this->db->where('id_cliente',$id_cliente); 
         $cliente=$this->db->get("clientes");
         if ($cliente->num_rows()>0){
             //cuando hay clientes
@@ -91,13 +91,13 @@
       }
 
       //clientes que adeudan
-    public function clientes_sin_pagos(){
+    public function getClientesSinPago(){
       $fechaEntera = time();
-      $year = date("Y", $fechaEntera);
-      $mes = date("m", $fechaEntera);
-      $sql = "SELECT * from clientes as cl where cl.id_cliente NOT IN (select pg.fk_id_cliente from pago as pg WHERE YEAR(pg.fecha_pago)=$year and MONTH(pg.fecha_pago) = $mes) and estado_cliente=1";
-      $query = $this->db->query($sql);
-      return $query;
+        $year = date("Y", $fechaEntera);
+        $mes = date("m", $fechaEntera);
+        $sql = "SELECT cl.celular_cliente, cl.cedula_cliente from clientes as cl where cl.id_cliente NOT IN (select pg.fk_id_cliente from pago as pg WHERE YEAR(pg.fecha_pago)=$year and MONTH(pg.fecha_pago) = $mes) and estado_cliente=1";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
   }
     
 }

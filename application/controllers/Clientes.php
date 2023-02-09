@@ -74,9 +74,9 @@
             $idPlan=$this->input->post("fk_id_plan");
             $dataPlan=array($this->plan->consultarPorId($idPlan));
             $objetoPlan = $dataPlan[0];
-            $megas = $objetoPlan->meg_sub_plan;
+            $megas = $objetoPlan->meg_sub_plan*1000;
             $megasBj = $objetoPlan->meg_baj_plan;
-            $mg="$megas/$megasBj";
+            $mg="$megas/$megasBj"; 
             //extraer id de la ip
             $id_ip=$this->input->post("fk_id_ip");
             //envio de datos al modelo
@@ -87,9 +87,9 @@
                 "direccion_cliente"=>$this->input->post("direccion_cliente"),
                 "celular_cliente"=>$this->input->post("celular_cliente"),
                 "correo_cliente"=>$this->input->post("correo_cliente"),
-                "ciudad_cliente"=>$this->input->post("ciudad_cliente"),
-                "parroquia_cliente"=>$this->input->post("parroquia_cliente"),
-                "ref_cliente"=> $this->input->post("ref_cliente"),
+                "latitud_cliente"=>$this->input->post("latitud_cliente"),
+                "longitud_cliente"=>$this->input->post("longitud_cliente"),
+                "fk_id_ip"=>$this->input->post("fk_id_ip"),
                 "fk_id_plan"=>$this->input->post("fk_id_plan")
                 
             );
@@ -109,7 +109,7 @@
 
         }
 
-        public function actualizarClientes(){
+        public function actualizarClientes(){ 
             $cedulaE=$this->input->post("cedula_cliente");
             $id_cliente=$this->input->post("id_cliente");
             $nombreClienteE=$this->input->post("nombre_cliente");
@@ -127,15 +127,14 @@
              $megasE = $objetoPlan->meg_sub_plan*1000;
              $megasBjE = $objetoPlan->meg_baj_plan;
             $datosEditarClientes=array(
-                "cedula_cliente"=>$this->input->post("cedula_cliente"),
+                "cedula_cliente"=>$this->input->post("cedula_cliente"), 
                 "nombre_cliente"=>$this->input->post("nombre_cliente"),
                 "apellido_cliente"=>$this->input->post("apellido_cliente"),
                 "direccion_cliente"=>$this->input->post("direccion_cliente"),
                 "celular_cliente"=>$this->input->post("celular_cliente"),
                 "correo_cliente"=>$this->input->post("correo_cliente"),
-                "ciudad_cliente"=>$this->input->post("ciudad_cliente"),
-                "parroquia_cliente"=>$this->input->post("parroquia_cliente"),
-                "ref_cliente"=>$this->input->post("ref_cliente"),
+                "latitud_cliente"=>$this->input->post("latitud_cliente"),
+                "longitud_cliente"=>$this->input->post("longitud_cliente"),
                 "fk_id_ip"=>$this->input->post("fk_id_ip"),
                 "fk_id_plan"=>$this->input->post("fk_id_plan")
             );

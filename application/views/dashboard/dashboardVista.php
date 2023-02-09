@@ -118,8 +118,8 @@ $totalPagados =   $pagadosCant - $totalClientes;
              } ?>, 
              <?php echo round($pagadosCant,2); ?>],
       backgroundColor: [
-        "#D10C0C",
-        "#58DE0C"
+        "#090159",
+        "#02CCF0"
       ],
       offset: [
         20
@@ -127,7 +127,7 @@ $totalPagados =   $pagadosCant - $totalClientes;
     }]
   },
   options: {
-    color: "#FFFFFF",
+    color: "black",
     responsive: true,
     maintainAspectRatio: true,
     aspectRatio: 2,

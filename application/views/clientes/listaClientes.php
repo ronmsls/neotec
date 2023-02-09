@@ -7,7 +7,12 @@
                           </center>
                           <center>
                             <a href="<?php echo site_url(); ?>/clientes/nuevoCliente" class="btn btn-success m-2">Agregar Nuevo</a>
-                            <a href="<?php echo site_url(); ?>/Tareas_programadas/clientes_sin_pagos" class="btn btn-danger m-2"> PRUEBA CORTES</a>
+                            <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
+                            <a href="<?php echo site_url(); ?>/Tareas_programadas/clientes_sin_pagos" class="btn btn-danger m-2">CORTES</a>
+                            <?php endif; ?>
+                            <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
+                            <a href="<?php echo site_url(); ?>/Tareas_programadas/clientes_sin_pagos_mensaje" class="btn btn-danger m-2">Mensaje</a>
+                            <?php endif; ?>
                           </center>
                             <div class="table-responsive">
                               <hr>
@@ -21,9 +26,10 @@
                                       <th class="text-center">APELLIDOS CLIENTE</th>
                                       <th class="text-center">DIRECCIÓN CLIENTE</th>
                                       <th class="text-center">CELULAR CLIENTE</th>
-                                      <th class="text-center">CIUDAD CLIENTE</th>
                                       <th></th>
+                                      <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
                                       <th></th>
+                                      <?php endif; ?>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -48,14 +54,13 @@
                                           <?php echo $filaTemporal->celular_cliente; ?>
                                         </td>
                                         <td class="text-center">
-                                          <?php echo $filaTemporal->ciudad_cliente; ?>
-                                        </td>
-                                        <td class="text-center">
                                           <a class="btn btn-success"  href="<?php echo site_url(); ?>/clientes/editarCliente/<?php echo $filaTemporal->id_cliente; ?>/<?php echo $filaTemporal->fk_id_plan; ?>/<?php echo $filaTemporal->fk_id_ip; ?>" > <i class="fa fa-pen"></i></a>
                                         </td>
+                                        <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
                                         <td>
                                           <a class="btn btn-danger" href='javascript:void(0)' onclick="confirmarEliminacion('<?php echo$filaTemporal->id_cliente; ?>');"><i class="fa fa-trash"></i>                                          
                                         </td>
+                                        <?php endif; ?>
                                       </tr>
                                       <?php endforeach; ?>
                                     </tbody>

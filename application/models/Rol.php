@@ -18,6 +18,13 @@
         }
     }
 
+
+     public function consultarTodosExtra(){
+      $sql = "SELECT * FROM rol WHERE `id_rol` <> 3 ";
+      $query = $this->db->query($sql);
+      return $query;
+  }
+
     //funcion para listar datos por id
     public function consultarPorId($id_rol){
       $this->db->where('id_rol',$id_rol);
