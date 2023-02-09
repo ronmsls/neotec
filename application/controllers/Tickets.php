@@ -43,7 +43,7 @@
     $pdf->SetFont('Arial','',9);
     $pdf->MultiCell(0,5,iso8859_1_to_utf8("RUC: 1803871472001"),0,'C',false);
     $pdf->MultiCell(0,5,iso8859_1_to_utf8("ELOY ALFARO SN Y GONZALES SUARES"),0,'C',false);
-    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Teléfono: 0969008848"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Telefono: 0969008848"),0,'C',false);
 
 
     $pdf->MultiCell(0,5,iso8859_1_to_utf8("Fecha: $fecha"),0,'C',false);
@@ -57,9 +57,9 @@
         $apellidoDec=urldecode($apellido);
         $direccionDec=urldecode($direccion);
     $pdf->MultiCell(0,5,iso8859_1_to_utf8("Cliente: $nombreDec $apellidoDec "),0,'C',false);
-    $pdf->MultiCell(0,5,iso8859_1_to_utf8("N° cédula:  $cedula"),0,'C',false);
-    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Teléfono: $telefono"),0,'C',false);
-    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Dirección: $direccionDec"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Num cedula:  $cedula"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Telefono: $telefono"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Direccion: $direccionDec"),0,'C',false);
     
     $pdf->Ln(1);
     $pdf->Cell(0,5,iso8859_1_to_utf8("------------------------------------------------------"),0,0,'C');
