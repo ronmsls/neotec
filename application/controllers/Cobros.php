@@ -132,7 +132,7 @@ function Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$corr
     # Encabezado y datos de la empresa # 
     $pdf->SetFont('Arial','B',10);
     $pdf->SetTextColor(0,0,0);
-    $pdf->MultiCell(0,5,utf8_decode(strtoupper("NEOTEC")),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8(strtoupper("NEOTEC")),0,'C',false);
     $pdf->SetFont('Arial','',9);
     $pdf->MultiCell(0,5,utf8_decode("RUC: 1803871472001"),0,'C',false);
     $pdf->MultiCell(0,5,utf8_decode("ELOY ALFARO SN Y GONZALES SUARES"),0,'C',false);
