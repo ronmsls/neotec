@@ -62,6 +62,7 @@ class CI_Loader {
     public $exceptions;
     public $output;
     public $security;
+    public $application;
     public $input;
     public $lang;
 	
