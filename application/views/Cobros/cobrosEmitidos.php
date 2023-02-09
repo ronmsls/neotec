@@ -13,16 +13,12 @@
                                 <table id="tablaClientes" class="table table-striped">
                                   <thead>
                                     <tr>
-                                      <th class="text-center">DETALLES</th>
-                                      <th class="text-center">CEDULA CLIENTE</th>
-                                      <th class="text-center">NOMBRES CLIENTE</th>
-                                      <th class="text-center">APELLIDOS CLIENTE</th>
-                                      <th class="text-center">DIRECCIÓN CLIENTE</th>
-                                      <th class="text-center">CELULAR CLIENTE</th>
-                                      <th></th>
-                                      <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                      <th></th>
-                                      <?php endif; ?>
+                                      <th class="text-center">ID</th>
+                                      <th class="text-center">FORMA DE PAGO</th>
+                                      <th class="text-center">BANCO O COOPERATIVA</th>
+                                      <th class="text-center">NUMERO DE DOCUMENTO</th>
+																			<th class="text-center">CANTIDAD DE PAGO</th>
+                                      <th class="text-center">FECHA DE PAGO</th>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -46,14 +42,6 @@
                                         <td class="text-center">
                                           <?php echo $filaTemporal->fecha_pago; ?>
                                         </td>
-                                        <td class="text-center">
-                                          <a class="btn btn-success"  href="<?php echo site_url(); ?>/clientes/editarCliente/<?php echo $filaTemporal->id_cliente; ?>/<?php echo $filaTemporal->fk_id_plan; ?>/<?php echo $filaTemporal->fk_id_ip; ?>" > <i class="fa fa-pen"></i></a>
-                                        </td>
-                                        <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                        <td>
-                                          <a class="btn btn-danger" href='javascript:void(0)' onclick="confirmarEliminacion('<?php echo$filaTemporal->id_cliente; ?>');"><i class="fa fa-trash"></i>                                          
-                                        </td>
-                                        <?php endif; ?>
                                       </tr>
                                       <?php endforeach; ?>
                                     </tbody>
