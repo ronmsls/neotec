@@ -38,7 +38,7 @@
         public function cobrosEmitidos(){
           $data["listadoCobros"]=$this->cobro->consultarTodos();
             $this->load->view('header');
-            $this->load->view("cobros/cobrosEmitidos",$data);
+            $this->load->view("Cobros/cobrosEmitidos",$data);
             $this->load->view('footer');
         }
 
@@ -99,7 +99,7 @@
           }else{
               $this->session->set_flashdata('error','Error al procesar, intente nuevamente');       
           }
-          redirect("cobros/listaCobros");
+          redirect("Cobros/listaCobros");
       }
 
       //validar si el documento existe
