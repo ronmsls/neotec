@@ -59,6 +59,7 @@
         $this->load->view('footer');
     }
 
+		#[AllowDynamicProperties]
     public function reporteFechas(){
         $this->load->view('header');
         $this->load->view("reportes/reporteFechas"); 
