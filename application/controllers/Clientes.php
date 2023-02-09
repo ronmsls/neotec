@@ -8,7 +8,7 @@
               $this->load->model("plan");
               $this->load->model("cobro");
               $this->load->model("ip");
-              $this->load->library('conectarMikrotik');  
+              $this->load->library('conectar');  
               // validando si alguien esta conectado
           if ($this->session->userdata("usuario_Conectado")) { 
             // si esta conectado
