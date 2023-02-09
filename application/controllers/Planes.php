@@ -5,7 +5,7 @@ class Planes extends CI_Controller{
     {
         parent::__construct();
         $this->load->model("plan");
-        $this->load->library('conectarMikrotik'); 
+
         //$this->load->library('conectar_test_api');
         // validando si alguien esta conectado
         if ($this->session->userdata("usuario_Conectado")) { 
