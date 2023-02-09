@@ -32,7 +32,7 @@
                                       <?php foreach ($listadoUsuarios->result() as $filaTemporal):  ?>
                                         <tr>
                                           <td class="text-center">
-                                              <a class="btn btn-info m-2"  href="<?php echo site_url(); ?>/usuarios/detallesUsuario/<?php echo $filaTemporal->id_usuario; ?>" > <?php echo $filaTemporal->id_usuario; ?></i></a>
+																						<?php echo $filaTemporal->cedula_usuario; ?>
                                           </td>
                                           <td class="text-center">
                                               <?php echo $filaTemporal->cedula_usuario; ?>
