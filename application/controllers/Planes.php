@@ -1,4 +1,5 @@
 <?php
+#[AllowDynamicProperties]
 class Planes extends CI_Controller{
     function __construct()
     {
