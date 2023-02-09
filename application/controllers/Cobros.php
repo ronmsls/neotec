@@ -117,5 +117,32 @@
         }
       }
     }
+function activar($comment, $maxlimit){
+    $ipRouteros="170.244.209.28";  // tu RouterOS.
+    $Username="api-tesis";
+    $Pass="12345678";
+    $api_puerto=8798;
+    $API = new RouterosAPI();
+    $API->debug = false;
+    if ($API->connect($ipRouteros , $Username , $Pass, $api_puerto)) {
+        $API->write("/queue/simple/getall", false);
+        $API->write('?comment=' .$comment, true);
+        $READ = $API->read(false);
+        $ARRAY = $API->parseResponse($READ);
+        if(count($ARRAY)>0){ // si el nombre de usuario "ya existe" lo edito
+            $API->write("/queue/simple/set",false);
+            $API->write("=.id=".$ARRAY[0]['.id'],false);
+            $a=$maxlimit*1000;
+            $API->write('=max-limit='."$a/$a",true);     //   2M/2M   [TX/RX]
+            $READ = $API->read(true);
+            $ARRAY = $API->parseResponse($READ);
+         } else {
+            echo "Error: el cliente no existe.";
+        }
+    }
+    
+    $API->disconnect();
+    
+    }
 
 ?>
