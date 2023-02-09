@@ -1,4 +1,4 @@
-var base_url="/";
+var base_url="//";
 console.log('Solicitud Service WORKER');
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register(base_url+'sw.js')
