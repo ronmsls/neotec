@@ -252,6 +252,7 @@ function Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$corr
 
 
 function activar($comment, $maxlimit){
+	require_once APPPATH.'third_party/mikrotik/api_mt_include2.php';
     $ipRouteros="170.244.209.28";  // tu RouterOS.
     $Username="api-tesis";
     $Pass="12345678";
