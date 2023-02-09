@@ -32,10 +32,10 @@
                                       <?php foreach ($listadoUsuarios->result() as $filaTemporal):  ?>
                                         <tr>
                                           <td class="text-center">
-																						<?php echo $filaTemporal->cedula_usuario; ?>
+						<?php echo $filaTemporal->id_usuario; ?>																<?php echo $filaTemporal->cedula_usuario; ?>
                                           </td>
                                           <td class="text-center">
-                                              <?php echo $filaTemporal->id_usuario; ?>
+                                              <?php echo $filaTemporal->cedula_usuario; ?>
                                           </td>
                                           <td class="text-center">
                                               <?php echo $filaTemporal->nombre_usuario; ?>
