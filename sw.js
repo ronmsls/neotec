@@ -1,5 +1,5 @@
 //asignar un nombre y versión al cache
-const CACHE_NAME = 'version 4',
+const CACHE_NAME = 'version 7',
   urlsToCache = [
     './',
     'https://fonts.googleapis.com/css?family=Raleway:400,700',
