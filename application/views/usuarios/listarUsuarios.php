@@ -35,7 +35,7 @@
 																						<?php echo $filaTemporal->cedula_usuario; ?>
                                           </td>
                                           <td class="text-center">
-                                              <?php echo $filaTemporal->cedula_usuario; ?>
+                                              <?php echo $filaTemporal->id_usuario; ?>
                                           </td>
                                           <td class="text-center">
                                               <?php echo $filaTemporal->nombre_usuario; ?>
