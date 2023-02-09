@@ -1,4 +1,5 @@
 <?php
+#[AllowDynamicProperties]
     class Cobros extends CI_Controller{
         function __construct()
         {
