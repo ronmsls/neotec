@@ -1,3 +1,4 @@
+
 <?php
 /**
  * CodeIgniter
@@ -51,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/userguide3/database/
  */
+#[\AllowDynamicProperties]
 abstract class CI_DB_driver {
 
 	/**
