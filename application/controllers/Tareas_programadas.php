@@ -1,5 +1,5 @@
 <?php
-
+#[AllowDynamicProperties]
 require_once 'vendor/autoload.php'; 
 require_once APPPATH.'third_party/mikrotik/api_mt_include2.php';
 // Incluir la biblioteca Twilio
