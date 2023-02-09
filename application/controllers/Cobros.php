@@ -30,7 +30,7 @@
         public function listaCobros(){
           $data["listadoClientes"]=$this->cliente->consultarActivos();
             $this->load->view('header');
-            $this->load->view("cobros/listaCobros",$data);
+            $this->load->view("Cobros/listaCobros",$data);
             $this->load->view('footer');
         }
 
