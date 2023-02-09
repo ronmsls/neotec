@@ -148,90 +148,90 @@ function Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$corr
     $pdf->SetTextColor(0,0,0);
     $pdf->MultiCell(0,5,iso8859_1_to_utf8(strtoupper("NEOTEC")),0,'C',false);
     $pdf->SetFont('Arial','',9);
-    $pdf->MultiCell(0,5,utf8_decode("RUC: 1803871472001"),0,'C',false);
-    $pdf->MultiCell(0,5,utf8_decode("ELOY ALFARO SN Y GONZALES SUARES"),0,'C',false);
-    $pdf->MultiCell(0,5,utf8_decode("Teléfono: 0969008848"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("RUC: 1803871472001"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("ELOY ALFARO SN Y GONZALES SUARES"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Teléfono: 0969008848"),0,'C',false);
 
 
-    $pdf->MultiCell(0,5,utf8_decode("Fecha: $fecha"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Fecha: $fecha"),0,'C',false);
     
 
     $pdf->Ln(1);
-    $pdf->Cell(0,5,utf8_decode("------------------------------------------------------"),0,0,'C');
+    $pdf->Cell(0,5,iso8859_1_to_utf8("------------------------------------------------------"),0,0,'C');
     $pdf->Ln(5);
 
-    $pdf->MultiCell(0,5,utf8_decode("Cliente: $nombre $apellido"),0,'C',false);
-    $pdf->MultiCell(0,5,utf8_decode("N° cédula:  $cedula"),0,'C',false);
-    $pdf->MultiCell(0,5,utf8_decode("Teléfono: $telefono"),0,'C',false);
-    $pdf->MultiCell(0,5,utf8_decode("Dirección: $direccion"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Cliente: $nombre $apellido"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("N° cédula:  $cedula"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Teléfono: $telefono"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("Dirección: $direccion"),0,'C',false);
     
     $pdf->Ln(1);
-    $pdf->Cell(0,5,utf8_decode("------------------------------------------------------"),0,0,'C');
+    $pdf->Cell(0,5,iso8859_1_to_utf8("------------------------------------------------------"),0,0,'C');
     $pdf->Ln(5);
 
 
     $pdf->SetFont('Arial','B',10);
-    $pdf->MultiCell(0,5,utf8_decode(strtoupper($meses[$mes-1])),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8(strtoupper($meses[$mes-1])),0,'C',false);
     $pdf->SetFont('Arial','',9);
     
     $pdf->Ln(1);
-    $pdf->Cell(0,5,utf8_decode("------------------------------------------------------"),0,0,'C');
+    $pdf->Cell(0,5,iso8859_1_to_utf8("------------------------------------------------------"),0,0,'C');
     $pdf->Ln(5);
 
     $pdf->Ln(1);
-    $pdf->Cell(0,5,utf8_decode("-------------------------------------------------------------------"),0,0,'C');
+    $pdf->Cell(0,5,iso8859_1_to_utf8("-------------------------------------------------------------------"),0,0,'C');
     $pdf->Ln(3);
 
     # Tabla de productos #
-    $pdf->Cell(10,5,utf8_decode("Cant."),0,0,'C');
-    $pdf->Cell(19,5,utf8_decode("Precio"),0,0,'C');
-    $pdf->Cell(15,5,utf8_decode("Desc."),0,0,'C');
-    $pdf->Cell(28,5,utf8_decode("Total"),0,0,'C');
+    $pdf->Cell(10,5,iso8859_1_to_utf8("Cant."),0,0,'C');
+    $pdf->Cell(19,5,iso8859_1_to_utf8("Precio"),0,0,'C');
+    $pdf->Cell(15,5,iso8859_1_to_utf8("Desc."),0,0,'C');
+    $pdf->Cell(28,5,iso8859_1_to_utf8("Total"),0,0,'C');
 
     $pdf->Ln(3);
-    $pdf->Cell(72,5,utf8_decode("-------------------------------------------------------------------"),0,0,'C');
+    $pdf->Cell(72,5,iso8859_1_to_utf8("-------------------------------------------------------------------"),0,0,'C');
     $pdf->Ln(3);
 
 
 
      /*----------  Detalles de la tabla  ----------*/
-     $pdf->MultiCell(0,7,utf8_decode("$descripcionDec"),0,'C',false);
-     $pdf->Cell(10,4,utf8_decode("1"),0,0,'C');
-     $pdf->Cell(19,4,utf8_decode("$precio"),0,0,'C');
-     $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
-     $pdf->Cell(28,4,utf8_decode("$precio USD"),0,0,'C');
+     $pdf->MultiCell(0,7,iso8859_1_to_utf8("$descripcionDec"),0,'C',false);
+     $pdf->Cell(10,4,iso8859_1_to_utf8("1"),0,0,'C');
+     $pdf->Cell(19,4,iso8859_1_to_utf8("$precio"),0,0,'C');
+     $pdf->Cell(18,5,iso8859_1_to_utf8(""),0,0,'C');
+     $pdf->Cell(28,4,iso8859_1_to_utf8("$precio USD"),0,0,'C');
      $pdf->Ln(4);
  
      /*----------  Fin Detalles de la tabla  ----------*/
 
 
-    $pdf->Cell(72,5,utf8_decode("-------------------------------------------------------------------"),0,0,'C');
+    $pdf->Cell(72,5,iso8859_1_to_utf8("-------------------------------------------------------------------"),0,0,'C');
 
         $pdf->Ln(5);
 
     # Impuestos & totales #
-    $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
-    $pdf->Cell(22,5,utf8_decode("SUBTOTAL"),0,0,'C');
-    $pdf->Cell(32,5,utf8_decode("$precio"),0,0,'C');
+    $pdf->Cell(18,5,iso8859_1_to_utf8(""),0,0,'C');
+    $pdf->Cell(22,5,iso8859_1_to_utf8("SUBTOTAL"),0,0,'C');
+    $pdf->Cell(32,5,iso8859_1_to_utf8("$precio"),0,0,'C');
 
 
     $pdf->Ln(5);
 
-    $pdf->Cell(72,5,utf8_decode("-------------------------------------------------------------------"),0,0,'C');
+    $pdf->Cell(72,5,iso8859_1_to_utf8("-------------------------------------------------------------------"),0,0,'C');
 
     $pdf->Ln(5);
 
-    $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
-    $pdf->Cell(22,5,utf8_decode("TOTAL A PAGAR"),0,0,'C');
-    $pdf->Cell(32,5,utf8_decode("$precio USD"),0,0,'C');
+    $pdf->Cell(18,5,iso8859_1_to_utf8(""),0,0,'C');
+    $pdf->Cell(22,5,iso8859_1_to_utf8("TOTAL A PAGAR"),0,0,'C');
+    $pdf->Cell(32,5,iso8859_1_to_utf8("$precio USD"),0,0,'C');
 
 
     $pdf->Ln(10);
 
-    $pdf->MultiCell(0,5,utf8_decode("*** Para poder realizar un reclamo debe de presentar este ticket ***"),0,'C',false);
+    $pdf->MultiCell(0,5,iso8859_1_to_utf8("*** Para poder realizar un reclamo debe de presentar este ticket ***"),0,'C',false);
 
     $pdf->SetFont('Arial','B',9);
-    $pdf->Cell(0,7,utf8_decode("Gracias por su pago"),'',0,'C');
+    $pdf->Cell(0,7,iso8859_1_to_utf8("Gracias por su pago"),'',0,'C');
 
     $pdf->Ln(9);
     
