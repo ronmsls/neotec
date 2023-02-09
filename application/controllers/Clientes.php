@@ -142,7 +142,7 @@
                 //mensaje flash para confirmar
                 $this->session->set_flashdata("actualizacion","Datos del cliente actualizados correctamente");
                 $mgE="$megasE/$megasBjE";
-                $this->conectarmikrotik->conectar($direccion_ipE,$nombreCompletoE,$mgE,$cedulaE);            
+                conectar($direccion_ipE,$nombreCompletoE,$mgE,$cedulaE);            
                 redirect('clientes/listarClientes');
             }else{
                   echo "error al actualizar";
