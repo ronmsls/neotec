@@ -63,7 +63,7 @@ class Planes extends CI_Controller{
         );
         if($this->plan->actualizar($id_plan,$datosEditarPlanes)){
             //mensaje flash para confirmar
-            $this->session->set_flashdata("actualizacion","Datos del plan actualizados correctamente");
+            
               redirect('planes/listarPlanes');
         }else{
               echo "error al actualizar";
