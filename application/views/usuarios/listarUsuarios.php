@@ -16,7 +16,7 @@
                                 <table id="tabla" class="display" style="width:100%">
                                     <thead>
                                       <tr>
-                                        <th class="text-center">ID</th>
+                                        
                                         <th class="text-center">CEDULA USUARIO</th>
                                         <th class="text-center">NOMBRE USUARIO</th>
                                         <th class="text-center">APELLIDO USUARIO</th>
@@ -31,9 +31,7 @@
                                     <tbody>
                                       <?php foreach ($listadoUsuarios->result() as $filaTemporal):  ?>
                                         <tr>
-                                          <td class="text-center">
-						<?php echo $filaTemporal->id_usuario; ?>																<?php echo $filaTemporal->cedula_usuario; ?>
-                                          </td>
+                                          
                                           <td class="text-center">
                                               <?php echo $filaTemporal->cedula_usuario; ?>
                                           </td>
