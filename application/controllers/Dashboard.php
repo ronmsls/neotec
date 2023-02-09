@@ -7,12 +7,7 @@
             $this->load->model('cliente');
             $this->load->model('usuario');
             $this->load->model('cobro');
-            //validando si alguien esta conectado
-            if ($this->session->userdata("usuario_Conectado")) { 
-                // si esta conectado
-              } else {
-                redirect("seguridades/login");
-              }
+           
         }
 
         public function dashboardView(){
