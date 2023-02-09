@@ -1,4 +1,4 @@
-var base_url="/neotec/";
+var base_url="https://ok1.herokuapp.com/";
 console.log('Solicitud Service WORKER');
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register(base_url+'sw.js')
