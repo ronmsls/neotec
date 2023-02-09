@@ -90,8 +90,8 @@
               $megasE = $objetoPlan->meg_sub_plan*1000;
               $megasBjE = $objetoPlan->meg_baj_plan;
               $mgE=$megasE;
+	      activar($cedula,$mgE);
 	      Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$correo,$descripcionDec);
-              activar($cedula,$mgE);
               
               //$this->conectarmikrotik->conectar($direccion_ip,$nombreCompleto,$mg,$cedula); 
               redirect("clientes/detallesCliente/$id_cliente/$id_plan");
