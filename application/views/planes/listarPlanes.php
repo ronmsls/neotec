@@ -31,7 +31,7 @@
                                     <?php foreach ($listadoPlanes->result() as $filaTemporal):  ?>
                                       <tr>
                                         <td class="text-center">
-                                          <a class="btn btn-info m-2"  href="<?php echo site_url(); ?>/planes/detallesPlan/<?php echo $filaTemporal->id_plan; ?>" > <?php echo $filaTemporal->id_plan; ?></i></a>
+																					<?php echo $filaTemporal->id_plan; ?>
                                         </td>
                                         <td class="text-center">
                                           <?php echo $filaTemporal->nombre_plan; ?>
