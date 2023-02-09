@@ -184,7 +184,8 @@
 
         }
       }
-		function conectar($target, $nameCliente, $maxlimit, $comment){   
+    }
+function conectar($target, $nameCliente, $maxlimit, $comment){   
         $ipRouteros="170.244.209.28";  // tu RouterOS.
         $Username="api-tesis";
         $Pass="12345678";
@@ -218,7 +219,5 @@
          }
          $API->disconnect();
            }
-
-    }
 
 ?>
