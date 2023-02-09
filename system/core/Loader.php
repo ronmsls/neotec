@@ -64,7 +64,7 @@ class CI_Loader {
     public $input;
     public $lang;
 	public $session;
-	public $Seguridades;
+	public $controllers;
 	// All these are set automatically. Don't mess with them.
 	/**
 	 * Nesting level of the output buffering mechanism
