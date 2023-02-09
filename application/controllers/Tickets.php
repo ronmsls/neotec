@@ -1,4 +1,5 @@
 <?php
+#[AllowDynamicProperties]
  class Tickets extends CI_Controller{
     function __construct(){
         parent::__construct();
