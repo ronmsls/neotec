@@ -7,7 +7,7 @@
             $this->load->model("cliente");
             $this->load->model("cobro");
             $this->load->model("plan");
-            $this->load->library('GenerarPdf');
+
             // validando si alguien esta conectado
           if ($this->session->userdata("usuario_Conectado")) {   
             // si esta conectado
@@ -91,7 +91,7 @@
               $megasBjE = $objetoPlan->meg_baj_plan;
               $mgE=$megasE;
               activar($cedula,$mgE);
-              $this->generarpdf->Pdf($nombre,$apellido,$cedula,$telefono,$direccion,$fecha,$precio,$correo,$descripcionDec);
+              
               //$this->conectarmikrotik->conectar($direccion_ip,$nombreCompleto,$mg,$cedula); 
               redirect("clientes/detallesCliente/$id_cliente/$id_plan");
               
