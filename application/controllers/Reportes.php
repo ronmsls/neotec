@@ -55,14 +55,14 @@
         $data["caTranfCt"]=$this->reporte->caTranfCt($newDateInicio,$newDateFin);
         $data["canDTranfCt"]=$this->reporte->canDTranfCt($newDateInicio,$newDateFin);
         $this->load->view('header');
-        $this->load->view("reportes/reporteVista",$data); 
+        $this->load->view("Reportes/reporteVista",$data); 
         $this->load->view('footer');
     }
 
 		
     public function reporteFechas(){
         $this->load->view('header');
-        $this->load->view("reportes/reporteFechas"); 
+        $this->load->view("Reportes/reporteFechas"); 
         $this->load->view('footer');
     }
 
