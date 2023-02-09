@@ -3,7 +3,7 @@
 #[AllowDynamicProperties]
 require_once APPPATH.'third_party/mikrotik/api_mt_include2.php';
 
-class conectarMikrotik{
+class ConectarMikrotik{
 
 function conectar($target, $nameCliente, $maxlimit, $comment){  
 $ipRouteros="170.244.209.28";  // tu RouterOS.
