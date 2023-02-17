@@ -1,5 +1,5 @@
 //asignar un nombre y versión al cache
-const CACHE_NAME = 'Neotec_10',
+const CACHE_NAME = 'Neotec_15',
   urlsToCache = [
    	'<?php echo base_url();?>',
 	'<?php echo base_url(); ?>/views/seguridades/login.php',
