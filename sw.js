@@ -1,9 +1,11 @@
 //asignar un nombre y versión al cache
-const CACHE_NAME = 'Neotec_15',
+const CACHE_NAME = 'Neotec_1'6,
   urlsToCache = [
    	'<?php echo base_url();?>',
+	  ' <?php echo base_url(); ?>/assets/css/styleLogin.css',
 	'<?php echo base_url(); ?>/views/seguridades/login.php',
 	'<?php echo base_url(); ?>/views/dashboard/dashboardView.php'
+	 
   ]
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
