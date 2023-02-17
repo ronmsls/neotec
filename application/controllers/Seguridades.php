@@ -8,7 +8,8 @@
         }
         
         public function login(){
-            $this->load->view('seguridades/login');
+          $this->load->view('header');
+            $this->load->view('seguridades/login'); 
         }
 
         //funcion que valida las credenciales ingresadas
