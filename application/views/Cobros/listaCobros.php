@@ -124,7 +124,7 @@
                                         <?php endif; ?>
                                         <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
                                         <td>
-                                          <a class="btn btn-info"  href="<?php echo site_url(); ?>/Tareas_programadas/mensaje/<?php echo $filaTemporal->celular_cliente; ?>" ><i class="fa fa-comment"></i></a>
+                                          <a class="btn btn-info"  href="<?php echo site_url(); ?>/Tareas_programadas/mensaje1/<?php echo $filaTemporal->celular_cliente; ?>" ><i class="fa fa-comment"></i></a>
                                         </td>
                                         <?php endif; ?>
                                       </tr>
