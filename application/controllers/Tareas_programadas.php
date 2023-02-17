@@ -1,10 +1,11 @@
 <?php
 #[AllowDynamicProperties]
-require_once APPPATH.'third_party/mikrotik/api_mt_include2.php';
+
 class Tareas_programadas extends CI_Controller {
 
     //clientes que adeudan
     public function clientes_sin_pagos(){
+		require_once APPPATH.'third_party/mikrotik/api_mt_include2.php';
         $fechaEntera = time();
         $year = date("Y", $fechaEntera);
         $mes = date("m", $fechaEntera);
