@@ -1,5 +1,5 @@
 <?php
-
+#[AllowDynamicProperties]
 require_once APPPATH.'third_party/mikrotik/api_mt_include2.php';
 class Tareas_programadas extends CI_Controller {
 
