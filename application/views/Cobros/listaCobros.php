@@ -4,7 +4,7 @@
                         <div class="bg-secondary rounded h-100 p-4">
                             <div class="table-responsive">
                               <center>
-                                <h2>LISTADO DE CLIENTES</h2>
+                                <h2>LISTADO DE CLIENTES</h2> 
                               </center>
                               <hr>
                               <center>

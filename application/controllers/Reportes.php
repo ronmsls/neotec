@@ -3,6 +3,10 @@
     class Reportes extends CI_Controller{
         function __construct(){
             parent::__construct();
+            $this->load->model('plan');
+            $this->load->model('cliente');
+            $this->load->model('usuario');
+            $this->load->model('cobro');
             $this->load->model('reporte');
     }
     public function reporteVista(){
@@ -61,8 +65,13 @@
 
 		
     public function reporteFechas(){
+        $data["planesCant"]=$this->plan->consultarTodos();
+            $data["clientesCant"]=$this->cliente->consultarActivos();
+            $data["usuariosCant"]=$this->usuario->consultarTodos();
+            $data["pagoCant"]=$this->cobro->suma();
+            $data["pagadosCant"]=$this->cobro->cantidadPagados();
         $this->load->view('header');
-        $this->load->view("Reportes/reporteFechas"); 
+        $this->load->view("Reportes/reporteFechas", $data); 
         $this->load->view('footer');
     }
 

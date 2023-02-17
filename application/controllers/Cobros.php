@@ -28,7 +28,7 @@
 
 
         public function listaCobros(){
-          $data["listadoClientes"]=$this->cliente->consultarActivos();
+          $data["listadoClientes"]=$this->cobro->deudores();
             $this->load->view('header');
             $this->load->view("Cobros/listaCobros",$data);
             $this->load->view('footer');

@@ -30,6 +30,12 @@
                                       <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
                                       <th></th>
                                       <?php endif; ?>
+                                      <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
+                                      <th></th>
+                                      <?php endif; ?>
+                                      <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
+                                      <th></th>
+                                      <?php endif; ?>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -59,6 +65,16 @@
                                         <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
                                         <td>
                                           <a class="btn btn-danger" href='javascript:void(0)' onclick="confirmarEliminacion('<?php echo$filaTemporal->id_cliente; ?>');"><i class="fa fa-trash"></i>                                          
+                                        </td>
+                                        <?php endif; ?>
+                                        <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
+                                        <td>
+                                        <a class="btn btn-warning"  href="<?php echo site_url(); ?>/clientes/descativarCliente/<?php echo $filaTemporal->cedula_cliente; ?>" ><i class="fa fa-ban"></i></a>
+                                        </td>
+                                        <?php endif; ?>
+                                        <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
+                                        <td>
+                                          <a class="btn btn-info"  href="<?php echo site_url(); ?>/clientes/descativarCliente/<?php echo $filaTemporal->celular_cliente; ?>" ><i class="fa fa-comment"></i></a>
                                         </td>
                                         <?php endif; ?>
                                       </tr>

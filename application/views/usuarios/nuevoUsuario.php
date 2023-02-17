@@ -2,7 +2,7 @@
 <div class="row bg-secondary rounded  justify-content-left mx-0">
     <div class="col-md-11 text-left">
     <br>
-<h1> <center>Registro de Clientes</center> </h1> 
+<h1> <center>Registro de Uusarios</center> </h1> 
 <form action="<?php echo site_url(); ?>/usuarios/guardarUsuario" method="post" id="frm_nuevo_cliente" enctype="multipart/form-data">
     <br>
     <b>CEDULA DEL USUARIO: </b>

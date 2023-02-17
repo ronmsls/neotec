@@ -17,11 +17,20 @@
           //cuando hay clientes
           return $listadoPagos;
         }else{
-          //cuando no hay clientes
+          //cuando no hay clientes 
           return false;
       
 
         }
+    }
+
+    public function deudores(){
+        $fechaEntera = time();
+        $year = date("Y", $fechaEntera);
+        $mes = date("m", $fechaEntera);
+        $sql = "SELECT * from clientes as cl where cl.id_cliente NOT IN (select pg.fk_id_cliente from pago as pg WHERE YEAR(pg.fecha_pago)=$year and MONTH(pg.fecha_pago) = $mes) and estado_cliente=1";
+        $query = $this->db->query($sql);
+        return $query;
     }
 
     

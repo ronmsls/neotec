@@ -164,7 +164,7 @@
           }
 
         public function descativarCliente($cedula_cliente){
-            $this->conectarmikrotik->desactivar($cedula_cliente);
+            desactivar($cedula_cliente);
             redirect('clientes/listarClientes');
         }
 
@@ -184,6 +184,11 @@
 
         }
       }
+
+      public function cortarServicio(){
+
+      }
+
     }
 function conectar($target, $nameCliente, $maxlimit, $comment){  
 	require_once APPPATH.'third_party/mikrotik/api_mt_include2.php';
@@ -220,5 +225,34 @@ function conectar($target, $nameCliente, $maxlimit, $comment){
          }
          $API->disconnect();
            }
+
+           function desactivar($comment){
+            require_once APPPATH.'third_party/mikrotik/api_mt_include2.php';
+            $ipRouteros="170.244.209.28";  // tu RouterOS.
+            $Username="api-tesis";
+            $Pass="12345678";
+            $api_puerto=8798;
+            $API = new RouterosAPI();
+            $API->debug = false;
+            if ($API->connect($ipRouteros , $Username , $Pass, $api_puerto)) {
+                $API->write("/queue/simple/getall", false);
+                $API->write('?comment=' .$comment, true);
+                $READ = $API->read(false);
+                $ARRAY = $API->parseResponse($READ);
+                if(count($ARRAY)>0){ // si el nombre de usuario "ya existe" lo edito
+                    $API->write("/queue/simple/set",false);
+                    $API->write("=.id=".$ARRAY[0]['.id'],false);
+                    //$API->write('=name='.$nameCliente,false);
+                    $API->write('=max-limit='."1k/1k",true);    //   2M/2M   [TX/RX]
+                    $READ = $API->read(true);
+                    $ARRAY = $API->parseResponse($READ);
+                } else {
+                    echo "Error: el cliente no existe.";
+                }
+            }
+            
+            $API->disconnect();
+            
+            }
 
 ?>

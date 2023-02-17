@@ -1,8 +1,9 @@
 <div class="container-fluid pt-4 px-4">
 <div class="row bg-secondary rounded  justify-content-left mx-0">
-<h4 class="mb-4"> <br> <center>DATOS DEL CLIENTE </center> </h4>
+<h4 class="mb-4"> <br> <center>DATOS DEL CLIENTE </center> </h4> 
 <input type="hidden" name="id_cliente" id="id_cliente" class="form-control" value="<?php echo $listadoPlanesID->precio_plan; ?>" required >     
 <div class="col-sm-12 col-xl-6">
+<a class="btn btn-success"  href="<?php echo site_url(); ?>/cobros/nuevoCobro/<?php echo $listadoClientesID->id_cliente; ?>/<?php echo $listadoClientesID->fk_id_plan; ?>" > Nuevo Cobro</i></a>
     <div class="bg-secondary rounded h-100 p-4">
     <b>CÉDULA DEL CLIENTE: </b>
     <br><br>
