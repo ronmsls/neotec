@@ -2,7 +2,7 @@
 const CACHE_NAME = 'Neotec_10',
   urlsToCache = [
    	'<?php echo base_url();?>',
-	'<?php echo base_url(); ?>/views/dashboard/*'
+	'<?php echo base_url(); ?>/views/dashboard/dashboardView'
   ]
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
