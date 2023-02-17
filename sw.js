@@ -1,11 +1,7 @@
 //asignar un nombre y versión al cache
 const CACHE_NAME = 'Neotec_1',
   urlsToCache = [
-    './',
-    'https://fonts.googleapis.com/css?family=Raleway:400,700',
-    'https://fonts.gstatic.com/s/raleway/v12/1Ptrg8zYS_SKggPNwJYtWqZPAA.woff2',
-    'https://use.fontawesome.com/releases/v5.0.7/css/all.css',
-    'https://use.fontawesome.com/releases/v5.0.6/webfonts/fa-brands-400.woff2',
+    './'
   ]
 
 //durante la fase de instalación, generalmente se almacena en caché los activos estáticos
