@@ -54,7 +54,7 @@ class Tareas_programadas extends CI_Controller {
     public function mensaje($telefono){
 
 //TOKEN QUE NOS DA FACEBOOK
-$token = 'EAATkqjJKQecBANKy6FX4DcZAQgU6zr1HfTwYWybBpP4ZBJcUTVzdzxsAFVunAO0nKjcjOkHuegKCBGULsJJ7ZCKJ95cuji8QCz4T2ShznOZBe71YV1BjPMb9xE9aPg8vMftWBAOyPdZCEBr3KzuR52qLnCX9LggDI8n2VnR5dT5covtorZB7hzOsyZBvCAoSJ8uISn0O9b7ks6n2BDI03K0';
+$token = 'EAATkqjJKQecBAOOprLQyT3oe0YAjl9MDxpEv1dCIBo5UovNeZCClspKBCuwIlsJICNL7ACK18NscXwqeLtZAIzFUv9FLFZCxZCGHtQMYNZCDsDl3OsDUGDXoZBMfhCCZCMlUrZAz2fSs6IkpmhJlC8NrKmRoNYAJuXxQt3LAJN4haer8LLZAjKb3b6sp4pl5FMfPQCLRo3gJTWXiZCqs9uItGL';
 $cadena = $telefono;
 $cadena = ltrim($cadena, "0");
 $telefonoFinal= "593$cadena";
