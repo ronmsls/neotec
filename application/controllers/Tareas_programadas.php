@@ -89,7 +89,7 @@ print_r($response);
 $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 //CERRAMOS EL CURL
 curl_close($curl);
-redirect("Cobros/listaCobros");
+
 
     }
 }
