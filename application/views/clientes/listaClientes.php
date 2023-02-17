@@ -11,7 +11,7 @@
                             <a href="<?php echo site_url(); ?>/Tareas_programadas/clientes_sin_pagos" class="btn btn-danger m-2">CORTES</a>
                             <?php endif; ?>
                             <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                            <a href="<?php echo site_url(); ?>/Tareas_programadas/clientes_sin_pagos_mensaje" class="btn btn-danger m-2">Mensaje</a>
+                            <a href="<?php echo site_url(); ?>/Tareas_programadas/mensaje" class="btn btn-danger m-2">Mensaje</a>
                             <?php endif; ?>
                           </center>
                             <div class="table-responsive">
@@ -27,12 +27,6 @@
                                       <th class="text-center">DIRECCIÓN CLIENTE</th>
                                       <th class="text-center">CELULAR CLIENTE</th>
                                       <th></th>
-                                      <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                      <th></th>
-                                      <?php endif; ?>
-                                      <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                      <th></th>
-                                      <?php endif; ?>
                                       <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
                                       <th></th>
                                       <?php endif; ?>
@@ -65,16 +59,6 @@
                                         <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
                                         <td>
                                           <a class="btn btn-danger" href='javascript:void(0)' onclick="confirmarEliminacion('<?php echo$filaTemporal->id_cliente; ?>');"><i class="fa fa-trash"></i>                                          
-                                        </td>
-                                        <?php endif; ?>
-                                        <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                        <td>
-                                        <a class="btn btn-warning"  href="<?php echo site_url(); ?>/clientes/descativarCliente/<?php echo $filaTemporal->cedula_cliente; ?>" ><i class="fa fa-ban"></i></a>
-                                        </td>
-                                        <?php endif; ?>
-                                        <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                        <td>
-                                          <a class="btn btn-info"  href="<?php echo site_url(); ?>/clientes/descativarCliente/<?php echo $filaTemporal->celular_cliente; ?>" ><i class="fa fa-comment"></i></a>
                                         </td>
                                         <?php endif; ?>
                                       </tr>

@@ -49,4 +49,47 @@ class Tareas_programadas extends CI_Controller {
         }
         return $query;
     }
+
+    public function mensaje($telefono){
+
+//TOKEN QUE NOS DA FACEBOOK
+$token = 'EAATkqjJKQecBAN7Srv0GtZBKmIu3Rao0HPdXStBShZAYfQU6BWyI7Ig6pOjJfCzkzs8ZB8fW0aucdh0WLGevcMCE58YMLobGTsmoTj9iPLfnr47Cyshg58sXOZAZBZA8nBldHONJlDPZCuz5c1vQQo7FYHivHFi1avC9BgfWAgIG78U8I0vsYej9EKJi0a4osMjmPpGZBrSBbPiffO9VEFIZB';
+$cadena = $telefono;
+$cadena = ltrim($cadena, "0");
+$telefonoFinal= "593$cadena";
+echo $telefonoFinal;
+//URL A DONDE SE MANDARA EL MENSAJE
+$url = 'https://graph.facebook.com/v15.0/103523422673234/messages';
+
+//CONFIGURACION DEL MENSAJE
+$mensaje = ''
+        . '{'
+        . '"messaging_product": "whatsapp", '
+        . '"to": "'.$telefonoFinal.'", '
+        . '"type": "template", '
+        . '"template": '
+        . '{'
+        . '     "name": "hello_world",'
+        . '     "language":{ "code": "en_US" } '
+        . '} '
+        . '}';
+//DECLARAMOS LAS CABECERAS
+$header = array("Authorization: Bearer " . $token, "Content-Type: application/json",);
+//INICIAMOS EL CURL
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $mensaje);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+//OBTENEMOS LA RESPUESTA DEL ENVIO DE INFORMACION
+$response = json_decode(curl_exec($curl), true);
+//IMPRIMIMOS LA RESPUESTA 
+print_r($response);
+//OBTENEMOS EL CODIGO DE LA RESPUESTA
+$status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+//CERRAMOS EL CURL
+curl_close($curl);
+redirect("Cobros/listaCobros");
+
+    }
 }
