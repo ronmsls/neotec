@@ -1,7 +1,11 @@
-var base_url="https://ok1.herokuapp.com/";
-console.log('Solicitud Service WORKER');
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register(base_url+'sw.js')
-    .then(reg => console.log('Registro de SW exitoso', reg))
-    .catch(err => console.warn('Error al tratar de registrar el sw', err))
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('https://localhost/neotec//sw.js').then(function(registration) {
+      // Registro exitoso
+      console.log('ServiceWorker registrado exitosamente con scope: ', registration.scope);
+    }, function(err) {
+      // Falla en el registro
+      console.log('ServiceWorker falló al registrarse: ', err);
+    });
+  });
 }
