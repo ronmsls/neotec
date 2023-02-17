@@ -56,7 +56,7 @@ class Tareas_programadas extends CI_Controller {
     function mensaje1($telefono){
 
         //TOKEN QUE NOS DA FACEBOOK
-        $token = 'EAATkqjJKQecBAGR5Q91HbMm9s6ib6awymVhD3zEsQdNWGHSVNC578U5cQ9fPvCcvTK6TsiV2o6RW8rizBYsuNRF2AGZCe8HIiJoZBfTYHZBrPHxccczZB9o8CMkroDsR2KDoZBZBNt41kss4Ut3MSBI1VxZAQ9sBnazAZCcHNivDu5cKHuwGkT59PmbdJyXQ7FS10ZCefCHwK8GpZCU1K0YZCv3';
+        $token = 'EAATkqjJKQecBADMprL4tcZCRtEqKyFlSelmUTJLzJN8Vho10wDHXnvpOmflKIUNeCbuV7pK93sepAvLceZCy8r1bXflBKZCU4bDqQipyZCQYozwynk08X2c4RM3ZCY1AdC2nigZB1ZCEb14tEcyTdBk962yCgvRp9Xvqw5Cr60m3UMK2iNQpuZA6UJZAYTaATxtEkxpvrY2PpJbtHV79smF00';
         $cadena = $telefono;
         $cadena = ltrim($cadena, "0");
         $telefonoFinal= "593$cadena";
@@ -99,7 +99,7 @@ class Tareas_programadas extends CI_Controller {
 function mensaje($telefono){
 
 //TOKEN QUE NOS DA FACEBOOK
-$token = 'EAATkqjJKQecBAGR5Q91HbMm9s6ib6awymVhD3zEsQdNWGHSVNC578U5cQ9fPvCcvTK6TsiV2o6RW8rizBYsuNRF2AGZCe8HIiJoZBfTYHZBrPHxccczZB9o8CMkroDsR2KDoZBZBNt41kss4Ut3MSBI1VxZAQ9sBnazAZCcHNivDu5cKHuwGkT59PmbdJyXQ7FS10ZCefCHwK8GpZCU1K0YZCv3';
+$token = 'EAATkqjJKQecBADMprL4tcZCRtEqKyFlSelmUTJLzJN8Vho10wDHXnvpOmflKIUNeCbuV7pK93sepAvLceZCy8r1bXflBKZCU4bDqQipyZCQYozwynk08X2c4RM3ZCY1AdC2nigZB1ZCEb14tEcyTdBk962yCgvRp9Xvqw5Cr60m3UMK2iNQpuZA6UJZAYTaATxtEkxpvrY2PpJbtHV79smF00';
 $cadena = $telefono;
 $cadena = ltrim($cadena, "0");
 $telefonoFinal= "593$cadena";
