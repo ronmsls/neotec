@@ -42,7 +42,7 @@ class Tareas_programadas extends CI_Controller {
                         echo "Error: el cliente no existe.";
                     }
                 }
-                mensaje($celular_cliente[$c]);
+               // mensaje($celular_cliente[$c]);
                 $API->disconnect();
 
                 $c=$c+1;
