@@ -2,9 +2,10 @@
 const CACHE_NAME = 'Neotec_1'6,
   urlsToCache = [
    	'<?php echo base_url();?>',
-	  '/assets/css/styleLogin.css',
+	  '<?php echo base_url();?>/assets/css/styleLogin.css',
 	'<?php echo base_url(); ?>/views/seguridades/login.php',
-	'<?php echo base_url(); ?>/views/dashboard/dashboardView.php'
+	'<?php echo base_url(); ?>/views/dashboard/dashboardView.php',
+	'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0'
 	 
   ]
 
