@@ -19,7 +19,7 @@ class Tareas_programadas extends CI_Controller {
                 print_r ($datosCliente); 
                 $celular_cliente = array_column($result, 'celular_cliente');
                 $cedula_cliente = array_column($result, 'cedula_cliente');
-                mensaje($celular_cliente[$c]);
+                
                 $ipRouteros="170.244.209.28";  // tu RouterOS.
                 $Username="api-tesis";
                 $Pass="12345678";
@@ -42,8 +42,9 @@ class Tareas_programadas extends CI_Controller {
                         echo "Error: el cliente no existe.";
                     }
                 }
-
+                mensaje($celular_cliente[$c]);
                 $API->disconnect();
+
                 $c=$c+1;
                 
             }
@@ -51,11 +52,54 @@ class Tareas_programadas extends CI_Controller {
         }
         return $query;
     }
+
+    function mensaje1($telefono){
+
+        //TOKEN QUE NOS DA FACEBOOK
+        $token = 'EAATkqjJKQecBAGR5Q91HbMm9s6ib6awymVhD3zEsQdNWGHSVNC578U5cQ9fPvCcvTK6TsiV2o6RW8rizBYsuNRF2AGZCe8HIiJoZBfTYHZBrPHxccczZB9o8CMkroDsR2KDoZBZBNt41kss4Ut3MSBI1VxZAQ9sBnazAZCcHNivDu5cKHuwGkT59PmbdJyXQ7FS10ZCefCHwK8GpZCU1K0YZCv3';
+        $cadena = $telefono;
+        $cadena = ltrim($cadena, "0");
+        $telefonoFinal= "593$cadena";
+        echo $telefonoFinal;
+        //URL A DONDE SE MANDARA EL MENSAJE
+        $url = 'https://graph.facebook.com/v15.0/103523422673234/messages';
+        
+        //CONFIGURACION DEL MENSAJE
+        $mensaje = ''
+                . '{'
+                . '"messaging_product": "whatsapp", '
+                . '"to": "'.$telefonoFinal.'", '
+                . '"type": "template", '
+                . '"template": '
+                . '{'
+                . '     "name": "hello_world",'
+                . '     "language":{ "code": "en_US" } '
+                . '} '
+                . '}';
+        //DECLARAMOS LAS CABECERAS
+        $header = array("Authorization: Bearer " . $token, "Content-Type: application/json",);
+        //INICIAMOS EL CURL
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $mensaje);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        //OBTENEMOS LA RESPUESTA DEL ENVIO DE INFORMACION
+        $response = json_decode(curl_exec($curl), true);
+        //IMPRIMIMOS LA RESPUESTA 
+        //print_r($response);
+        //OBTENEMOS EL CODIGO DE LA RESPUESTA
+        $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        //CERRAMOS EL CURL
+        curl_close($curl);
+        redirect("Cobros/listaCobros");
+        
+            }
 }
 function mensaje($telefono){
 
 //TOKEN QUE NOS DA FACEBOOK
-$token = 'EAATkqjJKQecBACFkpvbTbhKwP7BEczfgCKVB2LlYX6TsdM84AfLG5QgUhb7C6JOwTUY5cQ3CZBondZCy86ryW8II294ScX1RKfIhcyeoiz7RONWKRHK84CO1NBspDLwx1XzkydNMBAkqaHI5OHQiWKHEXh11oEhR5w2SbQpxuJglPEZAiGwNUkeLU6Trd4a1uHQzLNwxGwmmz25ZBZB4q';
+$token = 'EAATkqjJKQecBAGR5Q91HbMm9s6ib6awymVhD3zEsQdNWGHSVNC578U5cQ9fPvCcvTK6TsiV2o6RW8rizBYsuNRF2AGZCe8HIiJoZBfTYHZBrPHxccczZB9o8CMkroDsR2KDoZBZBNt41kss4Ut3MSBI1VxZAQ9sBnazAZCcHNivDu5cKHuwGkT59PmbdJyXQ7FS10ZCefCHwK8GpZCU1K0YZCv3';
 $cadena = $telefono;
 $cadena = ltrim($cadena, "0");
 $telefonoFinal= "593$cadena";
