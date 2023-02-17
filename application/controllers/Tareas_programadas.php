@@ -94,4 +94,4 @@ curl_close($curl);
 redirect("Cobros/listaCobros");
 
     }
-}
+
