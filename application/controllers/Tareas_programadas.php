@@ -55,7 +55,7 @@ class Tareas_programadas extends CI_Controller {
 function mensaje($telefono){
 
 //TOKEN QUE NOS DA FACEBOOK
-$token = 'EAATkqjJKQecBAN7Srv0GtZBKmIu3Rao0HPdXStBShZAYfQU6BWyI7Ig6pOjJfCzkzs8ZB8fW0aucdh0WLGevcMCE58YMLobGTsmoTj9iPLfnr47Cyshg58sXOZAZBZA8nBldHONJlDPZCuz5c1vQQo7FYHivHFi1avC9BgfWAgIG78U8I0vsYej9EKJi0a4osMjmPpGZBrSBbPiffO9VEFIZB';
+$token = 'EAATkqjJKQecBACFkpvbTbhKwP7BEczfgCKVB2LlYX6TsdM84AfLG5QgUhb7C6JOwTUY5cQ3CZBondZCy86ryW8II294ScX1RKfIhcyeoiz7RONWKRHK84CO1NBspDLwx1XzkydNMBAkqaHI5OHQiWKHEXh11oEhR5w2SbQpxuJglPEZAiGwNUkeLU6Trd4a1uHQzLNwxGwmmz25ZBZB4q';
 $cadena = $telefono;
 $cadena = ltrim($cadena, "0");
 $telefonoFinal= "593$cadena";
@@ -86,12 +86,12 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 //OBTENEMOS LA RESPUESTA DEL ENVIO DE INFORMACION
 $response = json_decode(curl_exec($curl), true);
 //IMPRIMIMOS LA RESPUESTA 
-print_r($response);
+//print_r($response);
 //OBTENEMOS EL CODIGO DE LA RESPUESTA
 $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 //CERRAMOS EL CURL
 curl_close($curl);
-redirect("Cobros/listaCobros");
+//redirect("Cobros/listaCobros");
 
     }
 
