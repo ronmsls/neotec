@@ -84,9 +84,6 @@
                                       <th class="text-center">MEGAS DE SUBIDA</th>
                                       <th class="text-center">MEGAS DE BAJADA</th>
                                       <th></th>
-                                      <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                      <th></th>
-                                      <?php endif; ?>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -113,11 +110,6 @@
                                         <td class="text-center">
                                           <a class="btn btn-success"  href="<?php echo site_url(); ?>/planes/editarPlan/<?php echo $filaTemporal->id_plan; ?>" > <i class="fa fa-pen"></i></a>
                                         </td>
-                                        <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                        <td>
-                                          <a class="btn btn-danger" href='javascript:void(0)' onclick="confirmarEliminacion('<?php echo$filaTemporal->id_plan; ?>');"><i class="fa fa-trash"></i>                                          
-                                        </td>
-                                        <?php endif; ?>
                                       </tr>
                                       <?php endforeach; ?>
                                     </tbody>
