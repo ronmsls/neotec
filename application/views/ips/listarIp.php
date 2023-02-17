@@ -79,9 +79,6 @@
                                       <th class="text-center">ID</th>
                                       <th class="text-center">DIRECCION IP</th>
                                       <th class="text-center">ESTADO</th>
-                                      <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                      <th></th>
-                                      <?php endif; ?>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -101,11 +98,6 @@
                                           }
                                           ?>
                                         </td>
-                                        <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
-                                        <td>
-                                          <a class="btn btn-danger" href='javascript:void(0)' onclick="confirmarEliminacion('<?php echo$filaTemporal->id_ip; ?>');"><i class="fa fa-trash"></i>                                          
-                                        </td>
-                                        <?php endif; ?>
                                       </tr>
                                       <?php endforeach; ?>
                                     </tbody>
