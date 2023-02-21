@@ -385,15 +385,60 @@ const etiquetasCuentas = ["Pichincha Cta. 2200000940", "Pichincha Cta. 601021800
 const datosCuentas = {
     label: "DINERO POR CUENTAS",
     data: [
-    <?php echo round($B1); ?>, 
-    <?php echo round($B2); ?>, 
-    <?php echo round($B3); ?>,
-    <?php echo round($B4); ?>,
-    <?php echo round($B5); ?>,
-    <?php echo round($B6); ?>,
-    <?php echo round($B7); ?>,
-    <?php echo round($B8); ?>,
-    <?php echo round($B9); ?>
+    <?php if($B1<1){
+        $B1=0;
+        echo round($B1);
+    }else{
+        echo round($B1);
+    } ?>,  
+    <?php if($B2<1){
+        $B2=0;
+        echo round($B2);
+    }else{
+        echo round($B2);
+    } ?>, 
+    <?php if($B3<1){
+        $B3=0;
+        echo round($B3);
+    }else{
+        echo round($B3);
+    } ?>,
+    <?php if($B4<1){
+        $B4=0;
+        echo round($B4);
+    }else{
+        echo round($B4);
+    } ?>,
+    <?php if($B5<1){
+        $B5=0;
+        echo round($B5);
+    }else{
+        echo round($B5);
+    } ?>,
+    <?php if($B6<1){
+        $B6=0;
+        echo round($B6);
+    }else{
+        echo round($B6);
+    } ?>,
+    <?php if($B7<1){
+        $B7=0;
+        echo round($B7);
+    }else{
+        echo round($B7);
+    } ?>,
+    <?php if($B8<1){
+        $B8=0;
+        echo round($B8);
+    }else{
+        echo round($B8);
+    } ?>,
+    <?php if($B9<1){
+        $B9=0;
+        echo round($B9);
+    }else{
+        echo round($B9);
+    } ?>
 ], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
     backgroundColor: [
         "#43C2D9",
