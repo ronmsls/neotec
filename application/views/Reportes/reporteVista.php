@@ -377,15 +377,60 @@ const etiquetasCuentasDineroTrans = ["Pichincha Cta. 2200000940", "Pichincha Cta
 const datosCuentasDineroTrans = {
     label: "CANTIDAD DE DINERO POR TRANSFERENCIAS",
     data: [
-    <?php echo round($canDinTranPi1); ?>, 
-    <?php echo round($canDTranfPi2); ?>, 
-    <?php echo round($canDTranfGy1); ?>,
-    <?php echo round($canDTranfGy2); ?>,
-    <?php echo round($canDTranfCh); ?>,
-    <?php echo round($canDTranfMr); ?>,
-    <?php echo round($canDTranfAm); ?>,
-    <?php echo round($canDTranfPb); ?>,
-    <?php echo round($canDTranfCt); ?>
+	    <?php if($canDinTranPi1<1){
+        $canDinTranPi1=0;
+        echo round($canDinTranPi1);
+    }else{
+        echo round($canDinTranPi1);
+    } ?>,  
+    <?php if($canDTranfPi2<1){
+        $canDTranfPi2=0;
+        echo round($canDTranfPi2);
+    }else{
+        echo round($canDTranfPi2);
+    } ?>, 
+    <?php if($canDTranfGy1<1){
+        $canDTranfGy1=0;
+        echo round($canDTranfGy1);
+    }else{
+        echo round($canDTranfGy1);
+    } ?>,
+    <?php if($canDTranfGy2<1){
+        $canDTranfGy2=0;
+        echo round($canDTranfGy2);
+    }else{
+        echo round($canDTranfGy2);
+    } ?>,
+    <?php if($canDTranfCh<1){
+        $canDTranfCh=0;
+        echo round($canDTranfCh);
+    }else{
+        echo round($canDTranfCh);
+    } ?>,
+    <?php if($canDTranfMr<1){
+        $canDTranfMr=0;
+        echo round($canDTranfMr);
+    }else{
+        echo round($canDTranfMr);
+    } ?>,
+    <?php if($canDTranfAm<1){
+        $canDTranfAm=0;
+        echo round($canDTranfAm);
+    }else{
+        echo round($canDTranfAm);
+    } ?>,
+    <?php if($canDTranfPb<1){
+        $canDTranfPb=0;
+        echo round($canDTranfPb);
+    }else{
+        echo round($canDTranfPb);
+    } ?>,
+    <?php if($canDTranfCt<1){
+        $canDTranfCt=0;
+        echo round($canDTranfCt);
+    }else{
+        echo round($canDTranfCt);
+    } ?>
 ], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
     backgroundColor: [
         "#43C2D9",
