@@ -50,6 +50,50 @@
         $year = date("Y", $fechaEntera);
 
   }
+  //cantidad de pagos en efectivo
+public function efectivo(){
+  $sql = "SELECT count(`id_pago`) as efectivo FROM `pago` WHERE `forma_pago`='Efectivo'";
+  $query = $this->db->query($sql);
+  return $query->row()->efectivo;
+
+}
+  //cantidad de pagos en transferencia
+public function deposito(){
+  $sql = "SELECT count(`id_pago`) as deposito FROM `pago` WHERE `forma_pago`='Deposito'";
+  $query = $this->db->query($sql);
+  return $query->row()->deposito;
+  
+}
+  //cantidad de pagos en deposito
+  public function transferencia(){
+    $sql = "SELECT count(`id_pago`) as transferencia FROM `pago` WHERE `forma_pago`='Transferencia'";
+    $query = $this->db->query($sql);
+    return $query->row()->transferencia;
+  
+  }
+
+  //cantidad de dinero en efectivo
+  public function cantidadDineroEfectivo(){
+    $sql = "SELECT SUM(`cantidad_pago`) as  `cantidadDineroEfectivo` from pago WHERE `forma_pago`='EFECTIVO'";
+    $query = $this->db->query($sql);
+    return $query->row()->cantidadDineroEfectivo;
+  }
+
+  //cantidad de dinero en Deposito
+  public function cantidadDineroDeposito(){
+    $sql = "SELECT SUM(`cantidad_pago`) as  `cantidadDineroDeposito` from pago WHERE `forma_pago`='Deposito'";
+    $query = $this->db->query($sql);
+    return $query->row()->cantidadDineroDeposito;
+  }
+
+  //cantidad de dinero en Transferencia
+  public function cantidadDineroTransferencia(){
+    $sql = "SELECT SUM(`cantidad_pago`) as  `cantidadDineroTransferencia` from pago WHERE `forma_pago`='Transferencia'";
+    $query = $this->db->query($sql);
+    return $query->row()->cantidadDineroTransferencia;
+  }
+
+
 //funcion para obtener la ultima fecha
   public function fechaFinal($id_cliente){
     $sql = "SELECT MONTH(`fecha_pago`) as mes FROM `pago` WHERE `fk_id_cliente`=$id_cliente ORDER by `id_pago` DESC LIMIT 1";

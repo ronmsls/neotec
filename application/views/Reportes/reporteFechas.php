@@ -78,19 +78,10 @@ $totalPagados =   $pagadosCant - $totalClientes;
                 </div>
                 
             </nav>
-            <!-- Navbar End -->
+            <!-- Navbar End --> 
             <!-- vistas generales de las cantidades de clientes, planes y usuarios -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-rocket fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total de Planes</p>
-                                <h6 class="mb-0"><?php echo $totalPlanes ?></h6>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-sm-6 col-xl-4">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-users fa-3x text-primary"></i>
@@ -104,21 +95,14 @@ $totalPagados =   $pagadosCant - $totalClientes;
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-user-circle fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total de Usuarios</p>
-                                <h6 class="mb-0"><?php echo $totalUsuarios ?></h6>
+                                <p class="mb-2">Total de Pagados</p>
+                                <h6 class="mb-0"><?php echo $pagadosCant ?></h6>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- fin de la vistas generales-->
-
-<!-- vistas generales de las cantidades de clientes, planes y usuarios -->
-<div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
                     <div class="col-sm-6 col-xl-4">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <a href="<?php echo site_url(); ?>/clientes/deudoresClientes" ><i class="fa fa-chart-line fa-3x text-primary"></i></a>
+                            <i class="fa fa-user-circle fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">Total de Deudores</p>
                                 <h6 class="mb-0">
@@ -132,39 +116,110 @@ $totalPagados =   $pagadosCant - $totalClientes;
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total de Pagados</p>
-                                <h6 class="mb-0"><?php echo $pagadosCant ?></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <a href="<?php echo site_url(); ?>/dashboard/dashboardFormasPago" ><i class="fa fa-credit-card fa-3x text-primary" aria-hidden="true"></i></a>
-                            <div class="ms-3">
-                                <p class="mb-2">Total de Dinero Pagado</p>
-                                <h6 class="mb-0"><?php if($pagoCant ==null){echo("0");}else{echo $pagoCant; } ?>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
+            <!-- fin de la vistas generales-->
+
             <!-- Sale & Revenue End -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-12">
+                <div class="row g-12">
+                    <div class="col-sm-6 col-xl-6">
                         <div class="bg-secondary rounded h-100 p-4">
-                            <canvas id="graficoCircular1" height="250px"></canvas>
+                        <h5>Cantidad de clientes pagados y deudores</h5>
+                            <canvas id="graficoCircular1" ></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="grafica" ></canvas>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaFormasPago" ></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaDineroFormasPago" ></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaCuentas" ></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                        <h5>Cantidad de clientes puntuales e inpuntuales</h5>
+                            <canvas id="graficaInyPun" ></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    
+                    <div class="col-sm-12 col-xl-12 " >
+                        <div class="bg-secondary rounded p-4 text-dark text-center">
+                            Seleccione las fechas para generar un Dashboard por fechas
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid pt-4 px-4">
+            <form action="<?php echo site_url(); ?>/reportes/reporteVista" method="post" enctype="multipart/form-data">
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-calendar fa-3x" aria-hidden="true"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Seleccione la fecha de inicio</p>
+                                <input type="date"   name="fechaInicio" id="fechaInicio" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <i class="fa fa-calendar fa-3x"  aria-hidden="true"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Seleccione la fecha de fin</p>
+                                <input type="date"   name="fechaFin" id="fechaFin" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-secondary rounded p-4 text-center">
+                            <button type="submit" name="button"  class="btn btn-success m-2">ACEPTAR</a></button>
+                        </div>
+                    </div>
+                      
+                </div>
+            </form>
+            </div>
+
             <br>
             </div>
         <!-- Content End -->
+
+        
 
 <script>
     var graficoCircular1 = new Chart($("#graficoCircular1"), {
@@ -180,7 +235,7 @@ $totalPagados =   $pagadosCant - $totalClientes;
              } ?>, 
              <?php echo round($pagadosCant,2); ?>],
       backgroundColor: [
-        "#090159",
+        "#02879E",
         "#02CCF0"
       ],
       offset: [
@@ -215,30 +270,202 @@ $totalPagados =   $pagadosCant - $totalClientes;
 </script>
 
 <script>
-  function initMap() {
-    if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    var pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    };
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
-      center: pos
-    });
-
-    var marker = new google.maps.Marker({
-      position: pos,
-      map: map
-    });
-  }, function() {
-    handleLocationError(true, infoWindow, map.getCenter());
-  });
-} else {
-  // Browser doesn't support Geolocation
-  handleLocationError(false, infoWindow, map.getCenter());
-}
-  }
+    // Obtener una referencia al elemento canvas del DOM
+const $grafica = document.querySelector("#grafica");
+// Las etiquetas son las que van en el eje X. 
+const etiquetas = ["Plan Básico", "Plan Premium", "Plan Premium Plus"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosPlanes = {
+    label: "PLANES MAS SOLICITADOS",
+    data: [<?php echo round($plan1); ?>, <?php echo round($plan2); ?>, <?php echo round($plan3); ?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#BA6F13",
+        "#ED8D18",
+        "#F0AF60",
+], // Color de fondo
+    borderColor: 'white', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($grafica, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetas,
+        datasets: [
+            datosPlanes,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1ka3BMCAd22ra5vuDn5SAjQomGc4UDCw&callback=initMap"></script>
+
+
+
+
+
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaFormasPago = document.querySelector("#graficaFormasPago");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasFormasPago = ["Efectivo", "Transferencia ", "Deposito"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosFormasPago = {
+    label: "FORMAS DE PAGO MAS USADAS",
+    data: [<?php echo round($efectivo); ?>, <?php echo round($transferencia); ?>, <?php echo round($deposito); ?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#15D629",
+        "#10A31F",
+        "#38FF49",
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaFormasPago, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasFormasPago,
+        datasets: [
+            datosFormasPago,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaDineroFormasPago = document.querySelector("#graficaDineroFormasPago");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasDineroFormasPago = ["Efectivo", "Transferencia ", "Deposito"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosDineroFormasPago = {
+    label: "DINERO POR CADA FORMA DE PAGO",
+    data: [<?php echo round($totalDineroEfectivo); ?>, <?php echo round($totalDineroTransferencia); ?>, <?php echo round($totalDineroDeposito); ?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#15D629",
+        "#10A31F",
+        "#38FF49",
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaDineroFormasPago, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasDineroFormasPago,
+        datasets: [
+            datosDineroFormasPago,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
+
+
+
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaCuentas = document.querySelector("#graficaCuentas");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasCuentas = ["Pichincha Cta. 2200000940", "Pichincha Cta. 6010218000", "Guayaquil Cta. 7633119","Guayaquil Cta. 21540468","Chibuleo Cta. 09187442100","Mushuc Runa Cta. 44600033252","Ambato Cta. 044611005290","Produbanco Cta. 12081071685","Cotopaxi Cta. 297811212370"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosCuentas = {
+    label: "DINERO POR CUENTAS",
+    data: [
+    <?php echo round($B1); ?>, 
+    <?php echo round($B2); ?>, 
+    <?php echo round($B3); ?>,
+    <?php echo round($B4); ?>,
+    <?php echo round($B5); ?>,
+    <?php echo round($B6); ?>,
+    <?php echo round($B7); ?>,
+    <?php echo round($B8); ?>,
+    <?php echo round($B9); ?>
+], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#02CCF0",
+        "#02879E"
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaCuentas, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasCuentas,
+        datasets: [
+            datosCuentas,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
+
+<script>
+    var graficaInyPun = new Chart($("#graficaInyPun"), {
+  type: "pie",
+  data: {
+    labels: ["PUNTUALES", "INPUNTUALES"],
+    datasets: [{
+      label: "Total",
+      data: [
+        <?php echo round($puntuales); ?>, 
+        <?php echo round($inpuntuales); ?>,],
+      backgroundColor: [
+        "#BA6F13",
+        "#F0AF60"
+      ],
+      offset: [
+        20
+      ]
+    }]
+  },
+  options: {
+    color: "black",
+    responsive: true,
+    maintainAspectRatio: true,
+    aspectRatio: 2,
+    layout: {
+      padding: 20
+    },
+    rotation: 90,
+    plugins: {
+      legend: {
+        position: "right",
+        labels: {
+          boxWidth: 25,
+          boxHeight: 25,
+          font: {
+            weight: "bold",
+            family: "Noto Sans"
+          }
+        }
+      }
+    }
+  }
+})
+</script>

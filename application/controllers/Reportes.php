@@ -65,6 +65,32 @@
 
 		
     public function reporteFechas(){
+        //cantidad de puntuales e inpuntuales
+        $data["puntuales"]=$this->reporte->cantidaPuntuales();
+        $data["inpuntuales"]=$this->reporte->cantidaInpuntuales();
+        //cantidad de cada plan
+        $data["plan1"]=$this->cliente->plan1();
+        $data["plan2"]=$this->cliente->plan2();
+        $data["plan3"]=$this->cliente->plan3();
+        //cantidad por formas de pago 
+        $data["efectivo"]=$this->cobro->efectivo();
+        $data["deposito"]=$this->cobro->deposito();
+        $data["transferencia"]=$this->cobro->transferencia();
+        //cantidad de dinero por formas de pago 
+        $data["totalDineroEfectivo"]=$this->cobro->cantidadDineroEfectivo();
+        $data["totalDineroDeposito"]=$this->cobro->cantidadDineroDeposito();
+        $data["totalDineroTransferencia"]=$this->cobro->cantidadDineroTransferencia();
+        //cantidad de dinero por cuentas
+        $data["B1"]=$this->reporte->cantidadDineroB1();
+        $data["B2"]=$this->reporte->cantidadDineroB2();
+        $data["B3"]=$this->reporte->cantidadDineroB3();
+        $data["B4"]=$this->reporte->cantidadDineroB4();
+        $data["B5"]=$this->reporte->cantidadDineroB5();
+        $data["B6"]=$this->reporte->cantidadDineroB6();
+        $data["B7"]=$this->reporte->cantidadDineroB7();
+        $data["B8"]=$this->reporte->cantidadDineroB8();
+        $data["B9"]=$this->reporte->cantidadDineroB9();
+        //
         $data["planesCant"]=$this->plan->consultarTodos();
             $data["clientesCant"]=$this->cliente->consultarActivos();
             $data["usuariosCant"]=$this->usuario->consultarTodos();

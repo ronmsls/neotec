@@ -1,3 +1,8 @@
+<?php
+if ($clientesCant) {
+  $totalClientes=sizeof($clientesCant->result());//contando los generos de la bdd
+}
+?>        
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark"> 
@@ -60,6 +65,19 @@
                 
             </nav>
             <!-- Navbar End -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-6 col-xl-6">
+                    <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-users fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total de Clientes</p>
+                                <h6 class="mb-0"><?php echo $totalClientes ?></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-12">
@@ -78,21 +96,22 @@
                               <?php if ($listadoClientes): ?>
                                 <table id="tablaClientes" class="table table-striped">
                                   <thead>
-                                    <tr>
-                                      <th class="text-center">DETALLES</th>
+                                    <tr>        
+                                        <th class="text-center">ID</th>    
                                       <th class="text-center">CEDULA CLIENTE</th>
                                       <th class="text-center">NOMBRES CLIENTE</th>
                                       <th class="text-center">APELLIDOS CLIENTE</th>
                                       <th class="text-center">DIRECCIÓN CLIENTE</th>
                                       <th class="text-center">CELULAR CLIENTE</th>
                                       <th></th>
+                                      <th></th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <?php foreach ($listadoClientes->result() as $filaTemporal):  ?>
                                       <tr>
-                                        <td class="text-center">
-                                          <a class="btn btn-info m-2"  href="<?php echo site_url(); ?>/clientes/detallesCliente/<?php echo $filaTemporal->id_cliente; ?>/<?php echo $filaTemporal->fk_id_plan; ?>" > <?php echo $filaTemporal->id_cliente; ?></i></a>
+                                      <td class="text-center">
+                                          <?php echo $filaTemporal->id_cliente; ?> 
                                         </td>
                                         <td class="text-center">
                                           <?php echo $filaTemporal->cedula_cliente; ?> 
@@ -112,6 +131,9 @@
                                         <td class="text-center">
                                           <a class="btn btn-success"  href="<?php echo site_url(); ?>/clientes/editarCliente/<?php echo $filaTemporal->id_cliente; ?>/<?php echo $filaTemporal->fk_id_plan; ?>/<?php echo $filaTemporal->fk_id_ip; ?>" > <i class="fa fa-pen"></i></a>
                                         </td>
+                                        <td>
+                                          <a class="btn btn-info"  href="<?php echo site_url(); ?>/clientes/detallesCliente/<?php echo $filaTemporal->id_cliente; ?>/<?php echo $filaTemporal->fk_id_plan; ?>" ><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+                                        </td>
                                       </tr>
                                       <?php endforeach; ?>
                                     </tbody>
@@ -127,6 +149,7 @@
                         </div>
                     </div>
                 </div>
+                <br>
             </div>
 
 <script type="text/javascript">

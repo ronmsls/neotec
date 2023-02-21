@@ -107,20 +107,6 @@
         <?php endif; ?>
     </select>
     <br>
-    <b>SELECCIONE UNA DIRECCIÓN IP: </b>
-    <br>
-    <select class="form-select" name="fk_id_ip" id="fk_id_ip" required>
-      <option value="" >SELECCIONAR LA DIECCIÓN IP</option>
-        <?php if ($listadoIps): ?>
-          <?php foreach ($listadoIps->result() as $filaTemporalIp): ?>
-              <option value="<?php echo $filaTemporalIp->id_ip ?>">
-                <?php echo $filaTemporalIp->direccion_ip ?>
-                <?php if($filaTemporalIp->estado_ip ==0){echo("En uso");} ?>
-              </option>
-          <?php endforeach; ?>
-        <?php endif; ?>
-    </select>
-    <br>
     <button type="submit" name="button"  class="btn btn-success m-2">ACTUALIZAR</a></button>
     &nbsp;&nbsp;&nbsp;
     <a href="<?php echo site_url(); ?>/clientes/listarClientes" class="btn btn-danger m-2"><i class="fa solid fa-ban"></i> CANCELAR</a>

@@ -8,6 +8,7 @@
               $this->load->model("plan");
               $this->load->model("cobro");
               $this->load->model("ip");
+              $this->load->model("reporte");
               // validando si alguien esta conectado
           if ($this->session->userdata("usuario_Conectado")) { 
             // si esta conectado
@@ -26,6 +27,7 @@
         }
 
         public function  listarClientes(){
+            $data["clientesCant"]=$this->cliente->consultarActivos();
             $data["listadoClientes"]=$this->cliente->consultarActivos();
             $this->load->view('header');
             $this->load->view("clientes/listaClientes",$data);  
@@ -135,7 +137,6 @@
                 "correo_cliente"=>$this->input->post("correo_cliente"),
                 "latitud_cliente"=>$this->input->post("latitud_cliente"),
                 "longitud_cliente"=>$this->input->post("longitud_cliente"),
-                "fk_id_ip"=>$this->input->post("fk_id_ip"),
                 "fk_id_plan"=>$this->input->post("fk_id_plan")
             );
             if($this->cliente->actualizar($id_cliente,$datosEditarClientes)){

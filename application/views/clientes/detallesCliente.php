@@ -35,7 +35,7 @@
                 </div>
             </nav>
         </div>
-<!-- Content Start -->
+<!-- Content Start --> 
 <div class="content">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
@@ -63,37 +63,78 @@
 <div class="container-fluid pt-4 px-4">
 <div class="row bg-secondary rounded  justify-content-left mx-0">
 <h4 class="mb-4"> <br> <center>DATOS DEL CLIENTE </center> </h4> 
-<input type="hidden" name="id_cliente" id="id_cliente" class="form-control" value="<?php echo $listadoPlanesID->precio_plan; ?>" required >     
-<div class="col-sm-12 col-xl-6">
+
+<div class="col-sm-12 col-xl-12">
 <a class="btn btn-success"  href="<?php echo site_url(); ?>/cobros/nuevoCobro/<?php echo $listadoClientesID->id_cliente; ?>/<?php echo $listadoClientesID->fk_id_plan; ?>" > Nuevo Cobro</i></a>
+</div>
+
+<input type="hidden" name="id_cliente" id="id_cliente" class="form-control" value="<?php echo $listadoPlanesID->precio_plan; ?>" required >     
     <div class="bg-secondary rounded h-100 p-4">
     <b>CÉDULA DEL CLIENTE: </b>
-    <br><br>
+    <br>
     <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->cedula_cliente; ?>" aria-label="default input example">
     <b>NOMBRES DEL CLIENTE: </b>
-    <br><br>
+    <br>
     <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->nombre_cliente; ?> <?php echo $listadoClientesID->apellido_cliente; ?>" aria-label="default input example">
     <b>DIRECCIÓN DEL CLIENTE: </b>
-    <br><br>
+    <br>
     <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->direccion_cliente; ?>" aria-label="default input example">
     <b>CELULAR DEL CLIENTE: </b>
-    <br><br>
+    <br>
     <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->celular_cliente; ?>" aria-label="default input example">
     <b>CORREO ELECTRÓNICO DEL CLIENTE: </b>
-    <br><br>
+    <br>
     <input class="form-control mb-3" type="text" value="<?php echo $listadoClientesID->correo_cliente; ?>" aria-label="default input example">
-    </div>
-    
-</div>
-<div class="col-sm-12 col-xl-6">
-<br><br>
-<b>UBICACIÓN: </b>
-<br><br>
-<div id="map" style="height: 360px; width: 320px; display: grid; align-items: center;"></div>  
-<br>
-</div>
+    </div>  
 </div>
 </div>  
+
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-12">
+        <div class="col-sm-12 col-xl-12">
+          <div class="bg-secondary rounded h-100 p-4">
+            <div id="map" style="height: 100px; width: 100%; "></div>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid pt-4 px-4">
+      <div class="row g-12">
+        <div class="col-sm-12 col-xl-12">
+          <div class="bg-secondary rounded h-100 p-4">
+          <canvas id="grafico" ></canvas> 
+          </div>
+        </div>
+      </div>
+    </div>
+<?php
+$fechas = ['2023-02-08', '2023-02-09', '2023-02-10', '2023-02-11', '2023-02-12', '2023-02-13', '2023-02-14'];
+$datos = [120, 150, 80, 200, 100, 70, 90];
+
+// Convertir fechas a días de la semana
+$labels = [];
+foreach ($fechas as $fecha) {
+  $dia_semana = date('l', strtotime($fecha));
+  $labels[] = $dia_semana;
+}
+
+// Crear gráfico
+$grafico = [
+  'type' => 'bar',
+  'data' => [
+    'labels' => $labels,
+    'datasets' => [
+      [
+        'label' => 'Pagos por día de la semana',
+        'data' => $datos,
+        'backgroundColor' => '#3e95cd'
+      ]
+    ]
+  ]
+];
+
+?>
 
 <div class="container-fluid pt-4 px-4">
         <div class="row bg-secondary rounded  justify-content-left mx-0">

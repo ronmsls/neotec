@@ -62,185 +62,362 @@
             <!-- Navbar End -->
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
-    <div class="col-12">
-            <div class="bg-secondary rounded h-100 p-4">
-            <div class="row g-4">
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-3">
-                                <p class="mb-2">Total Pagos en Efectivo</p>
-                                <h6 class="mb-0"><?php echo $totalPagadosEfectivo ?></h6>
-                            </div>
+        
+        <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaFormasPago" ></canvas>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <div class="ms-4">
-                                <p class="mb-2">Total Dinero en Efectivo</p>
-                                <h6 class="mb-0"><?php echo $totalDineroEfectivo ?></h6>
-                            </div>
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaDineroFormasPago" ></canvas>
                         </div>
                     </div>
-                </div>              
+                </div>
             </div>
-        </div>
-    <div class="col-12">
-            <div class="bg-secondary rounded h-100 p-4">
-            <div class="row g-4">
-                    <div class="col-sm-6 col-xl-12" >
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4" >
-                        <div class="table-responsive">
-                        <table class="table table-striped" id="tabla_deposito">
-                                <thead>
-                                    <tr>
-                                        <th scope="col"></th>
-                                        <th scope="col">Pichincha Cta. 2200000940</th>
-                                        <th scope="col">Pichincha Cta. 6010218000</th>
-                                        <th scope="col">Guayaquil Cta. 7633119</th>
-                                        <th scope="col">Guayaquil Cta. 21540468</th>
-                                        <th scope="col">Chibuleo Cta. 09187442100</th>
-                                        <th scope="col">Mushuc Runa Cta. 44600033252</th>
-                                        <th scope="col">Ambato Cta. 044611005290</th>
-                                        <th scope="col">Produbanco Cta. 12081071685</th>
-                                        <th scope="col">Cotopaxi Cta. 297811212370</th>
-                                        <th scope="col">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Cantidad</th>
-                                        <th scope="row"><?php echo $canDepPi1 ?></th>
-                                        <th scope="row"><?php echo $canDepPi2 ?></th>
-                                        <th scope="row"><?php echo $caDepfGy1 ?></th>
-                                        <th scope="row"><?php echo $caDepfGy2 ?></th>
-                                        <th scope="row"><?php echo $caDepfCh ?></th>
-                                        <th scope="row"><?php echo $caDepfMr ?></th>
-                                        <th scope="row"><?php echo $caDepfAm ?></th>
-                                        <th scope="row"><?php echo $caDepfPb ?></th>
-                                        <th scope="row"><?php echo $canDepfCt ?></th>
-                                        <th scope="row"><?php echo $totalPagosDeposito ?></th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Dinero</th>
-                                        <th scope="row"><?php if($canDinDepPi1 ==null){echo("0");}else{echo $canDinDepPi1; } ?></th>
-                                        <th scope="row"><?php if($canDiDepfPi2 ==null){echo("0");}else{echo $canDiDepfPi2; } ?></th>
-                                        <th scope="row"><?php if($canDiDepfGy1 ==null){echo("0");}else{echo $canDiDepfGy1; } ?></th>
-                                        <th scope="row"><?php if($canDiDepfGy2 ==null){echo("0");}else{echo $canDiDepfGy2; } ?></th>
-                                        <th scope="row"><?php if($canDiDepfCh ==null){echo("0");}else{echo $canDiDepfCh; } ?></th>
-                                        <th scope="row"><?php if($canDiDepfMr ==null){echo("0");}else{echo $canDiDepfMr; } ?></th>
-                                        <th scope="row"><?php if($canDiDepfAm ==null){echo("0");}else{echo $canDiDepfAm; } ?></th>
-                                        <th scope="row"><?php if($canDiDepfPb ==null){echo("0");}else{echo $canDiDepfPb; } ?></th>
-                                        <th scope="row"><?php if($canDiDepfCt ==null){echo("0");}else{echo $canDiDepfCt; } ?></th>
-                                        <th scope="row"><?php echo $totalDineroDeposito ?></th>
 
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        </div>
-                    </div>                  
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="bg-secondary rounded h-100 p-4">
-            <div class="row g-4">
-                    <div class="col-sm-6 col-xl-12">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <div class="table-responsive">
-                        <table class="table table-striped" id="tabla_transferencia">
-                                <thead>
-                                    <tr>
-                                        <th scope="col"></th>
-                                        <th scope="col">Pichincha Cta. 2200000940</th>
-                                        <th scope="col">Pichincha Cta. 6010218000</th>
-                                        <th scope="col">Guayaquil Cta. 7633119</th>
-                                        <th scope="col">Guayaquil Cta. 21540468</th>
-                                        <th scope="col">Chibuleo Cta. 09187442100</th>
-                                        <th scope="col">Mushuc Runa Cta. 44600033252</th>
-                                        <th scope="col">Ambato Cta. 044611005290</th>
-                                        <th scope="col">Produbanco Cta. 12081071685</th>
-                                        <th scope="col">Cotopaxi Cta. 297811212370</th>
-                                        <th scope="col">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Cantidad</th>
-                                        <th scope="row"><?php echo $canTranPi1 ?></th>
-                                        <th scope="row"><?php echo $caTranPi2 ?></th>
-                                        <th scope="row"><?php echo $cTranfGy1 ?></th>
-                                        <th scope="row"><?php echo $cTranfGy2 ?></th>
-                                        <th scope="row"><?php echo $cTranfCh ?></th>
-                                        <th scope="row"><?php echo $cTranfMr ?></th>
-                                        <th scope="row"><?php echo $cTranfAm ?></th>
-                                        <th scope="row"><?php echo $cTranfPb ?></th>
-                                        <th scope="row"><?php echo $caTranfCt ?></th>
-                                        <th scope="row"><?php echo $totalPagosTransferencia ?></th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Dinero</th>
-                                        <th scope="row"><?php if($canDinTranPi1 ==null){echo("0");}else{echo $canDinTranPi1; } ?></th>
-                                        <th scope="row"><?php if($canDTranfPi2 ==null){echo("0");}else{echo $canDTranfPi2; } ?></th>
-                                        <th scope="row"><?php if($canDTranfGy1 ==null){echo("0");}else{echo $canDTranfGy1; } ?></th>
-                                        <th scope="row"><?php if($canDTranfGy2 ==null){echo("0");}else{echo $canDTranfGy2; } ?></th>
-                                        <th scope="row"><?php if($canDTranfCh ==null){echo("0");}else{echo $canDTranfCh; } ?></th>
-                                        <th scope="row"><?php if($canDTranfMr ==null){echo("0");}else{echo $canDTranfMr; } ?></th>
-                                        <th scope="row"><?php if($canDTranfAm ==null){echo("0");}else{echo $canDTranfAm; } ?></th>
-                                        <th scope="row"><?php if($canDTranfPb ==null){echo("0");}else{echo $canDTranfPb; } ?></th>
-                                        <th scope="row"><?php if($canDTranfCt ==null){echo("0");}else{echo $canDTranfCt; } ?></th>
-                                        <th scope="row"><?php echo $totalDineroTransferencia ?></th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaCuentas" ></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12">
-            <div class="bg-secondary rounded h-100 p-4">
-            <div class="row g-4">
-                    <div class="col-sm-6 col-xl-12">
-                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <div class="table-responsive">
-                        <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col"></th>
-                                        <th scope="col">Efectivo</th>
-                                        <th scope="col">Deposito</th>
-                                        <th scope="col">Transferecia</th>
-                                        <th scope="col">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Cantidad</th>
-                                        <th scope="row"><?php echo $totalPagadosEfectivo ?></th>
-                                        <th scope="row"><?php echo $totalPagosDeposito ?></th>
-                                        <th scope="row"><?php echo $totalPagosTransferencia ?></th>
-                                        <th scope="row"><?php echo $totalPagadosEfectivo + $totalPagosDeposito + $totalPagosTransferencia  ?></th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Dinero</th>
-                                        <th scope="row"><?php echo $totalDineroEfectivo ?></th>
-                                        <th scope="row"><?php echo $totalDineroDeposito ?></th>
-                                        <th scope="row"><?php echo $totalDineroTransferencia ?></th>
-                                        <th scope="row"><?php echo $totalDineroEfectivo + $totalDineroDeposito + $totalDineroTransferencia?></th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaCuentasDinero" ></canvas>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaCuentasTrans" ></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaCuentasDineroTrans" ></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4 text-center">
+                <div class="row g-12">
+                    <div class="col-sm-3   col-xl-3 ">
+                        <div class="bg-secondary rounded h-100 p-4">
+                        <p class="mb-2">Total de Efectivo</p>
+                        <th scope="row">$ <?php echo $totalDineroEfectivo ?></th>   
+                        </div>
+                    </div>
+                    <div class="col-sm-3   col-xl-3 ">
+                        <div class="bg-secondary rounded h-100 p-4">
+                        <p class="mb-2">Total de Depositos</p>
+                        <th scope="row">$ <?php echo $totalDineroDeposito ?></th>
+                        </div>
+                    </div>
+                    <div class="col-sm-3   col-xl-3 ">
+                        <div class="bg-secondary rounded h-100 p-4">
+                        <p class="mb-2">Total de Transferencias</p>
+                        <th scope="row">$ <?php echo $totalDineroTransferencia ?></th>    
+                        </div>
+                    </div>
+                    <div class="col-sm-3   col-xl-3 ">
+                        <div class="bg-secondary rounded h-100 p-4">
+                        <p class="mb-2">Total Dinero</p>
+                        <th scope="row">$ <?php echo $totalDineroEfectivo + $totalDineroDeposito + $totalDineroTransferencia?></th>    
+                        </div>
+                    </div>
+                </div>
+                    </div>
     </div>
+    <br>
 </div>
 </div>
+
+
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaFormasPago = document.querySelector("#graficaFormasPago");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasFormasPago = ["Efectivo", "Transferencia ", "Deposito"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosFormasPago = {
+    label: "FORMAS DE PAGO MAS USADAS",
+    data: [<?php echo round($totalPagadosEfectivo); ?>, <?php echo round($totalPagosTransferencia); ?>, <?php echo round($totalPagosDeposito); ?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#15D629",
+        "#10A31F",
+        "#38FF49",
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaFormasPago, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasFormasPago,
+        datasets: [
+            datosFormasPago,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaDineroFormasPago = document.querySelector("#graficaDineroFormasPago");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasDineroFormasPago = ["Efectivo", "Transferencia ", "Deposito"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosDineroFormasPago = {
+    label: "DINERO POR CADA FORMA DE PAGO",
+    data: [<?php echo round($totalDineroEfectivo); ?>, <?php echo round($totalDineroTransferencia); ?>, <?php echo round($totalDineroDeposito); ?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#15D629",
+        "#10A31F",
+        "#38FF49",
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaDineroFormasPago, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasDineroFormasPago,
+        datasets: [
+            datosDineroFormasPago,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
+
+
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaCuentas = document.querySelector("#graficaCuentas");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasCuentas = ["Pichincha Cta. 2200000940", "Pichincha Cta. 6010218000", "Guayaquil Cta. 7633119","Guayaquil Cta. 21540468","Chibuleo Cta. 09187442100","Mushuc Runa Cta. 44600033252","Ambato Cta. 044611005290","Produbanco Cta. 12081071685","Cotopaxi Cta. 297811212370"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosCuentas = {
+    label: "CANTIDAD DE DEPOSITOS POR CUENTA",
+    data: [
+    <?php echo round($canDepPi1); ?>, 
+    <?php echo round($canDepPi2); ?>, 
+    <?php echo round($caDepfGy1); ?>,
+    <?php echo round($caDepfGy2); ?>,
+    <?php echo round($caDepfCh); ?>,
+    <?php echo round($caDepfMr); ?>,
+    <?php echo round($caDepfAm); ?>,
+    <?php echo round($caDepfPb); ?>,
+    <?php echo round($canDepfCt); ?>
+], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#02CCF0",
+        "#02879E"
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaCuentas, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasCuentas,
+        datasets: [
+            datosCuentas,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
+
+
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaCuentasDinero = document.querySelector("#graficaCuentasDinero");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasCuentasDinero = ["Pichincha Cta. 2200000940", "Pichincha Cta. 6010218000", "Guayaquil Cta. 7633119","Guayaquil Cta. 21540468","Chibuleo Cta. 09187442100","Mushuc Runa Cta. 44600033252","Ambato Cta. 044611005290","Produbanco Cta. 12081071685","Cotopaxi Cta. 297811212370"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosCuentasDinero = {
+    label: "CANTIDAD DE DINERO POR DEPOSITOS",
+    data: [
+    <?php echo round($canDinDepPi1); ?>, 
+    <?php echo round($canDiDepfPi2); ?>, 
+    <?php echo round($canDiDepfGy1); ?>,
+    <?php echo round($canDiDepfGy2); ?>,
+    <?php echo round($canDiDepfCh); ?>,
+    <?php echo round($canDiDepfMr); ?>,
+    <?php echo round($canDiDepfAm); ?>,
+    <?php echo round($canDiDepfPb); ?>,
+    <?php echo round($canDiDepfCt); ?>
+], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#02CCF0",
+        "#02879E"
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaCuentasDinero, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasCuentasDinero,
+        datasets: [
+            datosCuentasDinero,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>                                
+
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaCuentasTrans = document.querySelector("#graficaCuentasTrans");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasCuentasTrans = ["Pichincha Cta. 2200000940", "Pichincha Cta. 6010218000", "Guayaquil Cta. 7633119","Guayaquil Cta. 21540468","Chibuleo Cta. 09187442100","Mushuc Runa Cta. 44600033252","Ambato Cta. 044611005290","Produbanco Cta. 12081071685","Cotopaxi Cta. 297811212370"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosCuentasTrans = {
+    label: "CANTIDAD DE TRANSFERENCIAS POR CUENTA",
+    data: [
+    <?php echo round($canTranPi1); ?>, 
+    <?php echo round($caTranPi2); ?>, 
+    <?php echo round($cTranfGy1); ?>,
+    <?php echo round($cTranfGy2); ?>,
+    <?php echo round($cTranfCh); ?>,
+    <?php echo round($cTranfMr); ?>,
+    <?php echo round($cTranfAm); ?>,
+    <?php echo round($cTranfPb); ?>,
+    <?php echo round($caTranfCt); ?>
+], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#02CCF0",
+        "#02879E"
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaCuentasTrans, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasCuentasTrans,
+        datasets: [
+            datosCuentasTrans,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
+                                        
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaCuentasDineroTrans = document.querySelector("#graficaCuentasDineroTrans");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasCuentasDineroTrans = ["Pichincha Cta. 2200000940", "Pichincha Cta. 6010218000", "Guayaquil Cta. 7633119","Guayaquil Cta. 21540468","Chibuleo Cta. 09187442100","Mushuc Runa Cta. 44600033252","Ambato Cta. 044611005290","Produbanco Cta. 12081071685","Cotopaxi Cta. 297811212370"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosCuentasDineroTrans = {
+    label: "CANTIDAD DE DINERO POR TRANSFERENCIAS",
+    data: [
+    <?php echo round($canDinTranPi1); ?>, 
+    <?php echo round($canDTranfPi2); ?>, 
+    <?php echo round($canDTranfGy1); ?>,
+    <?php echo round($canDTranfGy2); ?>,
+    <?php echo round($canDTranfCh); ?>,
+    <?php echo round($canDTranfMr); ?>,
+    <?php echo round($canDTranfAm); ?>,
+    <?php echo round($canDTranfPb); ?>,
+    <?php echo round($canDTranfCt); ?>
+], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#02CCF0",
+        "#02879E"
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaCuentasDineroTrans, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasCuentasDineroTrans,
+        datasets: [
+            datosCuentasDineroTrans,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
+
+
 
 <script type="text/javascript">
 $(document).ready(function () {

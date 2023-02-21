@@ -99,6 +99,29 @@
         $query = $this->db->query($sql);
         $result = $query->result_array();
   }
+
+      //planes mas solicitaddos 
+      public function plan1(){
+        $sql = "SELECT count(`fk_id_plan`) as plan1 FROM `clientes` WHERE `fk_id_plan`=1";
+        $query = $this->db->query($sql);
+        return $query->row()->plan1;
+
+      }
+
+      public function plan2(){
+        $sql = "SELECT count(`fk_id_plan`) as plan2 FROM `clientes` WHERE `fk_id_plan`=2";
+        $query = $this->db->query($sql);
+        return $query->row()->plan2;
+        
+      }
+
+      public function plan3(){
+        $sql = "SELECT count(`fk_id_plan`) as plan3 FROM `clientes` WHERE `fk_id_plan`=3";
+        $query = $this->db->query($sql);
+        return $query->row()->plan3;
+        
+      }
+
     
 }
 ?>

@@ -4,7 +4,66 @@
         {
             parent::__construct(); 
         }
+        //cantidada de clientes que pagan entre el 1 y el 11
+        public function cantidaPuntuales(){
+          $sql = "SELECT COUNT(`id_pago`) AS pagadosPuntuales FROM `pago` WHERE DAY(`fecha_pago`) BETWEEN 1 AND 11";
+          $query = $this->db->query($sql);
+          return $query->row()->pagadosPuntuales;
+        }
+         //cantidada de clientes que pagan entre el 12 y el fin de mes
+         public function cantidaInpuntuales(){
+          $sql = "SELECT COUNT(`id_pago`) AS pagadosInpuntuales FROM `pago` WHERE DAY(`fecha_pago`) BETWEEN 12 AND DAY(LAST_DAY(`fecha_pago`));";
+          $query = $this->db->query($sql);
+          return $query->row()->pagadosInpuntuales;
+        }
+        //cantidad de dinero por cuentas
+        public function cantidadDineroB1(){
+          $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Pichincha_Cta_2200000940'";
+          $query = $this->db->query($sql);
+          return $query->row()->total;
+        }
+        public function cantidadDineroB2(){
+          $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Pichincha_Cta_6010218000'";
+          $query = $this->db->query($sql);
+          return $query->row()->total;
+        }
+        public function cantidadDineroB3(){
+          $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Guayaquil_Cta_7633119'";
+          $query = $this->db->query($sql);
+          return $query->row()->total;
+        }
+        public function cantidadDineroB4(){
+          $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Guayaquil_Cta_21540468'";
+          $query = $this->db->query($sql);
+          return $query->row()->total;
+        }
+        public function cantidadDineroB5(){
+          $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Chibuleo_Cta_09187442100'";
+          $query = $this->db->query($sql);
+          return $query->row()->total;
+        }
+        public function cantidadDineroB6(){
+          $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Mushuc_Runa_Cta_44600033252'";
+          $query = $this->db->query($sql);
+          return $query->row()->total;
+        }
+        public function cantidadDineroB7(){
+          $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Ambato_Cta_044611005290'";
+          $query = $this->db->query($sql);
+          return $query->row()->total;
+        }
+        public function cantidadDineroB8(){
+          $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Produbanco_Cta_12081071685'";
+          $query = $this->db->query($sql);
+          return $query->row()->total;
+        }
+        public function cantidadDineroB9(){
+          $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Cotopaxi_Cta_297811212370'";
+          $query = $this->db->query($sql);
+          return $query->row()->total;
+        }
 
+        //
         public function cantidadPagosEfectivo($fechaInicio, $fechaFin){
             $sql = "SELECT count(`id_pago`) as  `cantidadPagosEfectivo` from pago WHERE `fecha_pago` BETWEEN '$fechaInicio' AND '$fechaFin' AND `forma_pago`='EFECTIVO'";
             $query = $this->db->query($sql);

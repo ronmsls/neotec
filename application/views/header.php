@@ -52,7 +52,7 @@
   <!-- Datatables -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
   <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-
+<!--
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.0/js/fileinput.min.js" integrity="sha512-C9i+UD9eIMt4Ufev7lkMzz1r7OV8hbAoklKepJW0X6nwu8+ZNV9lXceWAx7pU1RmksTb1VmaLDaopCsJFWSsKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.5.0/css/fileinput.min.css" integrity="sha512-XHMymTWTeqMm/7VZghZ2qYTdoJyQxdsauxI4dTaBLJa8d1yKC/wxUXh6lB41Mqj88cPKdr1cn10SCemyLcK76A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <meta name="theme-color" content="#5CB85C">
@@ -66,7 +66,7 @@
 <meta name="apple-mobile-web-app-title" content="gestion de usuarios">
 <link rel="manifest" href="<?php echo base_url(); ?>manifest.json">
 <script type="text/javascript" src="<?php echo base_url('script.js'); ?>"></script>
-
+-->
   <script type="text/javascript">
       jQuery.validator.addMethod("letras", function(value, element) {
           //return this.optional(element) || /^[a-z]+$/i.test(value);
