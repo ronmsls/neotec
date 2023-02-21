@@ -270,7 +270,7 @@ $totalPagados =   $pagadosCant - $totalClientes;
 </script>
 
 <script>
-    // Obtener una referencia al elemento canvas del DOM
+    // Obtener una referencia al elemento canvas del DOM 
 const $grafica = document.querySelector("#grafica");
 // Las etiquetas son las que van en el eje X. 
 const etiquetas = ["Plan Básico", "Plan Premium", "Plan Premium Plus"]
