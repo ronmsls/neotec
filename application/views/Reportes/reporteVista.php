@@ -278,16 +278,61 @@ const etiquetasCuentasDinero = ["Pichincha Cta. 2200000940", "Pichincha Cta. 601
 // Podemos tener varios conjuntos de datos. Comencemos con uno
 const datosCuentasDinero = {
     label: "CANTIDAD DE DINERO POR DEPOSITOS",
-    data: [
-    <?php echo round($canDinDepPi1); ?>, 
-    <?php echo round($canDiDepfPi2); ?>, 
-    <?php echo round($canDiDepfGy1); ?>,
-    <?php echo round($canDiDepfGy2); ?>,
-    <?php echo round($canDiDepfCh); ?>,
-    <?php echo round($canDiDepfMr); ?>,
-    <?php echo round($canDiDepfAm); ?>,
-    <?php echo round($canDiDepfPb); ?>,
-    <?php echo round($canDiDepfCt); ?>
+    data: [	    	    
+	<?php if($canDinDepPi1<1){
+        $canDinDepPi1=0;
+        echo round($canDinDepPi1);
+    }else{
+        echo round($canDinDepPi1);
+    } ?>,  
+    <?php if($canDiDepfPi2<1){
+        $canDiDepfPi2=0;
+        echo round($canDiDepfPi2);
+    }else{
+        echo round($canDiDepfPi2);
+    } ?>, 
+    <?php if($canDiDepfGy1<1){
+        $canDiDepfGy1=0;
+        echo round($canDiDepfGy1);
+    }else{
+        echo round($canDiDepfGy1);
+    } ?>,
+    <?php if($canDiDepfGy2<1){
+        $canDiDepfGy2=0;
+        echo round($canDiDepfGy2);
+    }else{
+        echo round($canDiDepfGy2);
+    } ?>,
+    <?php if($canDiDepfCh<1){
+        $canDiDepfCh=0;
+        echo round($canDiDepfCh);
+    }else{
+        echo round($canDiDepfCh);
+    } ?>,
+    <?php if($canDiDepfMr<1){
+        $canDiDepfMr=0;
+        echo round($canDiDepfMr);
+    }else{
+        echo round($canDiDepfMr);
+    } ?>,
+    <?php if($canDiDepfAm<1){
+        $canDiDepfAm=0;
+        echo round($canDiDepfAm);
+    }else{
+        echo round($canDiDepfAm);
+    } ?>,
+    <?php if($canDiDepfPb<1){
+        $canDiDepfPb=0;
+        echo round($canDiDepfPb);
+    }else{
+        echo round($canDiDepfPb);
+    } ?>,
+    <?php if($canDiDepfCt<1){
+        $canDiDepfCt=0;
+        echo round($canDiDepfCt);
+    }else{
+        echo round($canDiDepfCt);
+    } ?>
 ], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
     backgroundColor: [
         "#43C2D9",
