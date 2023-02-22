@@ -142,6 +142,18 @@ public function deposito($id_cliente){
     return $query->row()->transferencia;
   
   }
+	    //cantidada de clientes que pagan entre el 1 y el 11
+  public function cantidaPuntuales($fechaInicio, $fechaFin){
+    $sql = "SELECT COUNT(`id_pago`) AS pagadosPuntuales FROM `pago` WHERE DATE(`fecha_pago`) BETWEEN '$fechaInicio' AND '$fechaFin' AND DAY(`fecha_pago`) BETWEEN 1 AND 11;";
+    $query = $this->db->query($sql);
+    return $query->row()->pagadosPuntuales;
+  }
+   //cantidada de clientes que pagan entre el 12 y el fin de mes
+   public function cantidaInpuntuales($fechaInicio, $fechaFin){
+    $sql = "SELECT COUNT(`id_pago`) AS pagadosInpuntuales FROM `pago` WHERE DATE(`fecha_pago`) BETWEEN '$fechaInicio' AND '$fechaFin' AND DAY(`fecha_pago`) BETWEEN 12 AND DAY(LAST_DAY(`fecha_pago`));";
+    $query = $this->db->query($sql);
+    return $query->row()->pagadosInpuntuales;
+  }
 
     
 }
