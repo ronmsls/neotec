@@ -117,6 +117,17 @@
                     </div>
                 </div>
             </div>
+	    
+	    <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                        <h5>Cantidad de clientes puntuales e inpuntuales</h5>
+                            <canvas id="graficaInyPun" ></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="container-fluid pt-4 px-4 text-center">
                 <div class="row g-12">
