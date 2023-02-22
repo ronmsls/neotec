@@ -121,6 +121,27 @@
         return $query->row()->plan3;
         
       }
+		//cantidad de pagos en efectivo
+public function efectivo($id_cliente){
+  $sql = "SELECT count(`id_pago`) as efectivo FROM `pago` WHERE `forma_pago`='Efectivo' and `fk_id_cliente`=$id_cliente";
+  $query = $this->db->query($sql);
+  return $query->row()->efectivo;
+
+}
+  //cantidad de pagos en transferencia
+public function deposito($id_cliente){
+  $sql = "SELECT count(`id_pago`) as deposito FROM `pago` WHERE `forma_pago`='Deposito' and `fk_id_cliente`=$id_cliente";
+  $query = $this->db->query($sql);
+  return $query->row()->deposito;
+  
+}
+  //cantidad de pagos en deposito
+  public function transferencia($id_cliente){
+    $sql = "SELECT count(`id_pago`) as transferencia FROM `pago` WHERE `forma_pago`='Transferencia' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->transferencia;
+  
+  }
 
     
 }
