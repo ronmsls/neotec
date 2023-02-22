@@ -76,7 +76,6 @@
                                 <table id="tablaClientes" class="table table-striped">
                                   <thead>
                                     <tr>
-                                      <th class="text-center">ID</th>
                                       <th class="text-center">DIRECCION IP</th>
                                       <th class="text-center">ESTADO</th>
                                     </tr>
@@ -84,9 +83,6 @@
                                   <tbody>
                                     <?php foreach ($listadoIps->result() as $filaTemporal):  ?>
                                       <tr>
-                                        <td class="text-center">
-                                          <?php echo $filaTemporal->id_ip; ?> 
-                                        </td>
                                         <td class="text-center">
                                           <?php echo $filaTemporal->direccion_ip; ?>
                                         </td>
