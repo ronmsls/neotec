@@ -51,6 +51,7 @@ class Tareas_programadas extends CI_Controller {
             redirect('clientes/listarClientes');
         }
         return $query;
+	    redirect('clientes/listarClientes');
     }
 
     function mensaje1($telefono){
