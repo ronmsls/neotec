@@ -46,6 +46,10 @@
         }
 
         public function detallesCliente($id_cliente,$fk_id_plan){ 
+		//cantidad de dinero por formas de pago 
+        $data["totalDineroEfectivo"]=$this->cliente->efectivo($id_cliente);
+        $data["totalDineroDeposito"]=$this->cliente->deposito($id_cliente);
+        $data["totalDineroTransferencia"]=$this->cliente->transferencia($id_cliente);
             $data["listadoClientesID"]=$this->cliente->consultarPorId($id_cliente);
             $data["listadoCobros"]=$this->cobro->consultarPorCliente($id_cliente);
             $data["listadoPlanesID"]=$this->plan->consultarPorId($fk_id_plan); 
