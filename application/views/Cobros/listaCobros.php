@@ -76,13 +76,14 @@
                                 <table id="tabla" class="table table-striped">
                                   <thead>
                                     <tr>
-                                      <th class="text-center">DETALLES</th>
+                                      <th class="text-center">ID</th>
                                       <th class="text-center">CEDULA CLIENTE</th>
                                       <th class="text-center">NOMBRES CLIENTE</th> 
                                       <th class="text-center">DIRECCIÓN CLIENTE</th>
                                       <th class="text-center">CELULAR CLIENTE</th>
                                       <th class="text-center">CORREO CLIENTE</th>
                                       <th></th>
+				      <th></th>
                                       <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
                                       <th></th>
                                       <?php endif; ?>
@@ -94,7 +95,7 @@
                                     <?php foreach ($listadoClientes->result() as $filaTemporal):  ?>
                                       <tr>
                                         <td class="text-center">
-                                          <a class="btn btn-info m-2"  href="<?php echo site_url(); ?>/clientes/detallesCliente/<?php echo $filaTemporal->id_cliente; ?>/<?php echo $filaTemporal->fk_id_plan; ?>" > <?php echo $filaTemporal->id_cliente; ?></i></a>
+                                          <?php echo $filaTemporal->id_cliente; ?>
                                         </td>
                                         <td class="text-center">
                                           <?php echo $filaTemporal->cedula_cliente; ?>
@@ -114,6 +115,9 @@
                                         </td>
                                         <td class="text-center">
                                           <a class="btn btn-success"  href="<?php echo site_url(); ?>/cobros/nuevoCobro/<?php echo $filaTemporal->id_cliente; ?>/<?php echo $filaTemporal->fk_id_plan; ?>" > Cobrar</i></a>
+                                        </td>
+				      	<td>
+                                          <a class="btn btn-info"  href="<?php echo site_url(); ?>/clientes/detallesCliente/<?php echo $filaTemporal->id_cliente; ?>/<?php echo $filaTemporal->fk_id_plan; ?>" ><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                         </td>
                                         <?php if ($this->session->userdata("usuario_Conectado")["rol"]=="ADMINISTRADOR_ROOT"): ?>
                                         <td>
