@@ -100,14 +100,14 @@
     </div>
 
     <div class="container-fluid pt-4 px-4">
-      <div class="row g-12">
-        <div class="col-sm-12 col-xl-12">
-          <div class="bg-secondary rounded h-100 p-4">
-          <canvas id="grafico" ></canvas> 
-          </div>
-        </div>
-      </div>
-    </div>
+                <div class="row g-12">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaDineroFormasPago" ></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <?php
 $fechas = ['2023-02-08', '2023-02-09', '2023-02-10', '2023-02-11', '2023-02-12', '2023-02-13', '2023-02-14'];
 $datos = [120, 150, 80, 200, 100, 70, 90];
@@ -752,3 +752,36 @@ body {
   top: 2px;
 }
 </style>
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaDineroFormasPago = document.querySelector("#graficaDineroFormasPago");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasDineroFormasPago = ["Efectivo", "Transferencia ", "Deposito"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosDineroFormasPago = {
+    label: "FORMA DE PAGO",
+    data: [<?php echo round($totalDineroEfectivo); ?>, <?php echo round($totalDineroTransferencia); ?>, <?php echo round($totalDineroDeposito); ?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#15D629",
+        "#10A31F",
+        "#38FF49",
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaDineroFormasPago, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasDineroFormasPago,
+        datasets: [
+            datosDineroFormasPago,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
