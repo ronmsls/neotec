@@ -14,6 +14,10 @@
         $fechaFin=$this->input->post("fechaFin");
         $newDateInicio = date("Y-m-d", strtotime($fechaInicio));
         $newDateFin = date("Y-m-d", strtotime($fechaFin));
+	    //cantidad de puntuales e inpuntuales
+        $data["puntuales"]=$this->cliente->cantidaPuntuales($newDateInicio,$newDateFin);
+        $data["inpuntuales"]=$this->cliente->cantidaInpuntuales($newDateInicio,$newDateFin);
+        //
         $data["totalPagadosEfectivo"]=$this->reporte->cantidadPagosEfectivo($newDateInicio,$newDateFin);
         $data["totalDineroEfectivo"]=$this->reporte->cantidadDineroEfectivo($newDateInicio,$newDateFin);
         $data["totalDineroDeposito"]=$this->reporte->cantidadDineroDeposito($newDateInicio,$newDateFin);
