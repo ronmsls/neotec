@@ -167,7 +167,7 @@ $totalPagados =   $pagadosCant - $totalClientes;
                 <div class="row g-12">
                     <div class="col-sm-12 col-xl-12">
                         <div class="bg-secondary rounded h-100 p-4">
-                        <h5>Cantidad de clientes puntuales e inpuntuales</h5>
+                        <h5>Cantidad de pagos puntuales e inpuntuales</h5>
                             <canvas id="graficaInyPun" ></canvas>
                         </div>
                     </div>
