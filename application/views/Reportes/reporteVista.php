@@ -518,6 +518,50 @@ const datosCuentasDineroTrans = {
 });
 </script>
 
+<script>
+    var graficaInyPun = new Chart($("#graficaInyPun"), {
+  type: "pie",
+  data: {
+    labels: ["PUNTUALES", "INPUNTUALES"],
+    datasets: [{
+      label: "Total",
+      data: [
+        <?php echo round($puntuales); ?>, 
+        <?php echo round($inpuntuales); ?>,],
+      backgroundColor: [
+        "#BA6F13",
+        "#F0AF60"
+      ],
+      offset: [
+        20
+      ]
+    }]
+  },
+  options: {
+    color: "black",
+    responsive: true,
+    maintainAspectRatio: true,
+    aspectRatio: 2,
+    layout: {
+      padding: 20
+    },
+    rotation: 90,
+    plugins: {
+      legend: {
+        position: "right",
+        labels: {
+          boxWidth: 25,
+          boxHeight: 25,
+          font: {
+            weight: "bold",
+            family: "Noto Sans"
+          }
+        }
+      }
+    }
+  }
+})
+</script>
 
 
 <script type="text/javascript">
