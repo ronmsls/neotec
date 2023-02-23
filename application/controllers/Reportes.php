@@ -84,6 +84,7 @@
         $data["totalDineroEfectivo"]=$this->cobro->cantidadDineroEfectivo();
         $data["totalDineroDeposito"]=$this->cobro->cantidadDineroDeposito();
         $data["totalDineroTransferencia"]=$this->cobro->cantidadDineroTransferencia();
+
         //cantidad de dinero por cuentas
         $data["B1"]=$this->reporte->cantidadDineroB1();
         $data["B2"]=$this->reporte->cantidadDineroB2();
@@ -95,6 +96,7 @@
         $data["B8"]=$this->reporte->cantidadDineroB8();
         $data["B9"]=$this->reporte->cantidadDineroB9();
         //
+        
         $data["planesCant"]=$this->plan->consultarTodos();
             $data["clientesCant"]=$this->cliente->consultarActivos();
             $data["usuariosCant"]=$this->usuario->consultarTodos();

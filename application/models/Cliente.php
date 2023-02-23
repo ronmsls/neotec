@@ -72,6 +72,12 @@
       }
   }
 
+  public function existe_cedula($cedula_cliente) {
+    $this->db->where('cedula_cliente', $cedula_cliente);
+    $query = $this->db->get('clientes');
+    return ($query->num_rows() > 0);
+}
+
     //fuincion para eliminar los datos 
 
     public function eliminar($id_cliente){
@@ -154,6 +160,62 @@ public function deposito($id_cliente){
     $query = $this->db->query($sql);
     return $query->row()->pagadosInpuntuales;
   }
+
+  //cantidad de dinero por cuentas
+  public function cantidadDineroB1($id_cliente){
+    $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Pichincha_Cta_2200000940' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->total;
+  }
+  public function cantidadDineroB2($id_cliente){
+    $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Pichincha_Cta_6010218000' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->total;
+  }
+  public function cantidadDineroB3($id_cliente){
+    $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Guayaquil_Cta_7633119' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->total;
+  }
+  public function cantidadDineroB4($id_cliente){
+    $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Guayaquil_Cta_21540468' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->total;
+  }
+  public function cantidadDineroB5($id_cliente){
+    $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Chibuleo_Cta_09187442100' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->total;
+  }
+  public function cantidadDineroB6($id_cliente){
+    $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Mushuc_Runa_Cta_44600033252' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->total;
+  }
+  public function cantidadDineroB7($id_cliente){
+    $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Ambato_Cta_044611005290' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->total;
+  }
+  public function cantidadDineroB8($id_cliente){
+    $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Banco_Produbanco_Cta_12081071685' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->total;
+  }
+  public function cantidadDineroB9($id_cliente){
+    $sql = "SELECT sum(`cantidad_pago`) as total FROM `pago` where `entidad_pago`='Cotopaxi_Cta_297811212370' and `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->total;
+  }
+
+  //cantidad de pagos por cliente
+  public function cantidadPagos($id_cliente){
+    $sql = "SELECT count(`id_pago`) as pagosTotales FROM `pago` WHERE `fk_id_cliente`=$id_cliente";
+    $query = $this->db->query($sql);
+    return $query->row()->pagosTotales;
+  }
+
+
 
     
 }

@@ -150,3 +150,15 @@ b{
 </script>
 <?php endif; ?>
 
+<?php if ($this->session->flashdata('actualizacion1')): ?>
+<script type="text/javascript">
+  		Swal.fire({
+  			position: 'top-end',
+  			icon: 'error',
+  			title: 'El cliente no existe vuelva a ingresar una cedula correcta',
+  			showConfirmButton: false,
+  			timer: 2500
+  	})
+</script>
+<?php endif; ?>
+

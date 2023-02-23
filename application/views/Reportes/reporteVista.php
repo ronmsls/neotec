@@ -288,7 +288,7 @@ const $graficaCuentasDinero = document.querySelector("#graficaCuentasDinero");
 const etiquetasCuentasDinero = ["Pichincha Cta. 2200000940", "Pichincha Cta. 6010218000", "Guayaquil Cta. 7633119","Guayaquil Cta. 21540468","Chibuleo Cta. 09187442100","Mushuc Runa Cta. 44600033252","Ambato Cta. 044611005290","Produbanco Cta. 12081071685","Cotopaxi Cta. 297811212370"]
 // Podemos tener varios conjuntos de datos. Comencemos con uno
 const datosCuentasDinero = {
-    label: "CANTIDAD DE DINERO POR DEPOSITOS",
+    label: "DINERO REGISTRADO POR DEPOSITOS",
     data: [	    	    
 	<?php if($canDinDepPi1<1){
         $canDinDepPi1=0;
@@ -431,7 +431,7 @@ const $graficaCuentasDineroTrans = document.querySelector("#graficaCuentasDinero
 const etiquetasCuentasDineroTrans = ["Pichincha Cta. 2200000940", "Pichincha Cta. 6010218000", "Guayaquil Cta. 7633119","Guayaquil Cta. 21540468","Chibuleo Cta. 09187442100","Mushuc Runa Cta. 44600033252","Ambato Cta. 044611005290","Produbanco Cta. 12081071685","Cotopaxi Cta. 297811212370"]
 // Podemos tener varios conjuntos de datos. Comencemos con uno
 const datosCuentasDineroTrans = {
-    label: "CANTIDAD DE DINERO POR TRANSFERENCIAS",
+    label: "DINERO REGISTRADO POR TRANSFERENCIAS",
     data: [
 	    <?php if($canDinTranPi1<1){
         $canDinTranPi1=0;

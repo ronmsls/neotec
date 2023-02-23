@@ -99,6 +99,30 @@
       </div>
     </div>
 
+    <div class="container-fluid pt-4 px-4 text-center">
+                <div class="row g-12">
+                    <div class="col-sm-3   col-xl-4 ">
+                        <div class="bg-secondary rounded h-100 p-4">
+                        <p class="mb-2">Plan Actual</p>
+                        <th scope="row"><?php echo $nombrePlan ?></th> 
+                        </div>
+                    </div>
+                    <div class="col-sm-3   col-xl-4 ">
+                        <div class="bg-secondary rounded h-100 p-4">
+                        <p class="mb-2">Precio Plan</p>
+                        <th scope="row">$ <?php echo $precioPlan ?></th> 
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3   col-xl-4 ">
+                        <div class="bg-secondary rounded h-100 p-4">
+                        <p class="mb-2">Cantidad de Pagos</p>
+                        <th scope="row"><?php echo $mesesCancelados ?></th> 
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
     <div class="container-fluid pt-4 px-4">
                 <div class="row g-12">
                     <div class="col-sm-12 col-xl-12">
@@ -108,37 +132,23 @@
                     </div>
                 </div>
             </div>
-<?php
-$fechas = ['2023-02-08', '2023-02-09', '2023-02-10', '2023-02-11', '2023-02-12', '2023-02-13', '2023-02-14'];
-$datos = [120, 150, 80, 200, 100, 70, 90];
 
-// Convertir fechas a días de la semana
-$labels = [];
-foreach ($fechas as $fecha) {
-  $dia_semana = date('l', strtotime($fecha));
-  $labels[] = $dia_semana;
-}
-
-// Crear gráfico
-$grafico = [
-  'type' => 'bar',
-  'data' => [
-    'labels' => $labels,
-    'datasets' => [
-      [
-        'label' => 'Pagos por día de la semana',
-        'data' => $datos,
-        'backgroundColor' => '#3e95cd'
-      ]
-    ]
-  ]
-];
-
-?>
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-12">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <canvas id="graficaCuentas" ></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 <div class="container-fluid pt-4 px-4">
         <div class="row bg-secondary rounded  justify-content-left mx-0">
-            <h4 class="mb-4"> <br> <center>MESES PAGADOS</center> </h4>
+            <h4 class="mb-4"> <br> <center>MESES QUE ADEUDA EL CLIENTE</center> </h4>
+            <hr>
+            <center><p>Los meses que se encuentran en gris son los meses que el cliente no ha realizado los pagos</p></center>
+            <hr>
                 <div class="col-sm-3 col-xl-3" align="center">
                     <div class="col-sm-4 col-xl-4">
                         <b>ENERO: 
@@ -149,8 +159,8 @@ $grafico = [
                                         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
                                         if($meses[$mes-1]=="Enero"){
                                             $enero = '
-                                            <label class="toggle">
-                                                <input class="toggle-checkbox" type="checkbox" id="checkbox" checked disabled>
+                                            <label class="toggle" >
+                                                <input class="toggle-checkbox"  type="checkbox" id="checkbox" checked disabled>
                                                 <div class="toggle-switch"></div>
                                             </label>';
                                             break;
@@ -501,61 +511,7 @@ $grafico = [
         </div>
     </div>
 
-<div class="container-fluid pt-4 px-4">
-<div class="row bg-secondary rounded  justify-content-left mx-0">
-<h4 class="mb-4"> <br> <center>COBROS EMITIDOS </center> </h4>
-<div class="col-sm-12 col-xl-12">
-<div class="table-responsive">
-                              <?php if ($listadoCobros): ?>
-                                <table id="tabla" class="table table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th class="text-center">FORMA DE PAGO</th>
-                                      <th class="text-center">BANCO O COOPERATIVA</th>
-                                      <th class="text-center">NUMERO DE DOCUMENTO</th>
-                                      <th class="text-center">FECHA DE PAGO</th>
-                                      <th></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <?php foreach ($listadoCobros->result() as $filaTemporal):  ?> 
-                                      <tr>
-                                        <td class="text-center">
-                                          <?php echo $filaTemporal->forma_pago; ?>
-                                        </td>
-                                        <td class="text-center">
-                                          <?php if($filaTemporal->entidad_pago=='Efectivo'){
-                                              echo "";
-                                            }else{
-                                              echo $filaTemporal->entidad_pago;
-                                            } ?>
-                                        </td>
-                                        <td class="text-center">
-                                        <?php if($filaTemporal->documento_pago=='Efectivo'){
-                                              echo "";
-                                            }else{
-                                              echo $filaTemporal->documento_pago;
-                                            } ?>
-                                        </td>
-                                        <td class="text-center">
-                                          <?php echo $filaTemporal->fecha_pago; ?>
-                                        </td>
-                                        <td>
-                                          <a class="btn btn-info m-2"  href="<?php echo site_url(); ?>/tickets/GenerarTicket/<?php echo $listadoClientesID->nombre_cliente; ?>/<?php echo $listadoClientesID->apellido_cliente; ?>/<?php echo $listadoClientesID->cedula_cliente; ?>/<?php echo $listadoClientesID->celular_cliente; ?>/<?php echo $listadoClientesID->direccion_cliente; ?>/<?php echo $filaTemporal->fecha_pago; ?>/<?php echo $listadoPlanesID->precio_plan; ?>/<?php echo $listadoPlanesID->detalles_plan; ?>"  target="_blank"> <i class="fa fa-print"></i></a>                                       
-                                        </td>
-                                      </tr>
-                                      <?php endforeach; ?>
-                                    </tbody>
-                                  </table>
-                                  <?php else: ?>
-                                    <div class="alert alert-danger">
-                                      <h1>NO SE ENCONTRARON PAGOS REGISTRADOS</h1>
-                                    </div>
-                                    <?php endif; ?>
-                                  </div>
-</div>
-</div>
-</div>
+
 <br>
 </div>
 <?php
@@ -783,6 +739,100 @@ const datosDineroFormasPago = {
         labels: etiquetasDineroFormasPago,
         datasets: [
             datosDineroFormasPago,
+            
+        ]
+    },
+    options: {
+        responsive: true,
+        aspectRatio: 2,
+        
+    }
+});
+</script>
+
+<script>
+    // Obtener una referencia al elemento canvas del DOM
+const $graficaCuentas = document.querySelector("#graficaCuentas");
+// Las etiquetas son las que van en el eje X. 
+const etiquetasCuentas = ["Pichincha Cta. 2200000940", "Pichincha Cta. 6010218000", "Guayaquil Cta. 7633119","Guayaquil Cta. 21540468","Chibuleo Cta. 09187442100","Mushuc Runa Cta. 44600033252","Ambato Cta. 044611005290","Produbanco Cta. 12081071685","Cotopaxi Cta. 297811212370"]
+// Podemos tener varios conjuntos de datos. Comencemos con uno
+const datosCuentas = {
+    label: "DINERO REGISTRADO POR CUENTAS",
+    data: [
+    <?php if($B1<1){
+        $B1=0;
+        echo round($B1);
+    }else{
+        echo round($B1);
+    } ?>,  
+    <?php if($B2<1){
+        $B2=0;
+        echo round($B2);
+    }else{
+        echo round($B2);
+    } ?>, 
+    <?php if($B3<1){
+        $B3=0;
+        echo round($B3);
+    }else{
+        echo round($B3);
+    } ?>,
+    <?php if($B4<1){
+        $B4=0;
+        echo round($B4);
+    }else{
+        echo round($B4);
+    } ?>,
+    <?php if($B5<1){
+        $B5=0;
+        echo round($B5);
+    }else{
+        echo round($B5);
+    } ?>,
+    <?php if($B6<1){
+        $B6=0;
+        echo round($B6);
+    }else{
+        echo round($B6);
+    } ?>,
+    <?php if($B7<1){
+        $B7=0;
+        echo round($B7);
+    }else{
+        echo round($B7);
+    } ?>,
+    <?php if($B8<1){
+        $B8=0;
+        echo round($B8);
+    }else{
+        echo round($B8);
+    } ?>,
+    <?php if($B9<1){
+        $B9=0;
+        echo round($B9);
+    }else{
+        echo round($B9);
+    } ?>
+], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: [
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#43C2D9",
+        "#02CCF0",
+        "#02879E",
+        "#02CCF0",
+        "#02879E"
+], // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+    new Chart($graficaCuentas, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetasCuentas,
+        datasets: [
+            datosCuentas,
             
         ]
     },

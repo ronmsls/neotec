@@ -68,7 +68,8 @@
 <form action="<?php echo site_url(); ?>/clientes/actualizarClientes" method="post" id="frm_nuevo_cliente" enctype="multipart/form-data">
     <input type="hidden" name="id_cliente" id="id_cliente" class="form-control" value="<?php echo $listadoClientesID->id_cliente; ?>" required >     
     <input type="hidden" name="latitud_cliente" id="latitud_cliente" class="form-control" value="<?php echo $listadoClientesID->latitud_cliente; ?>" required >     
-    <input type="hidden" name="longitud_cliente" id="longitud_cliente" class="form-control" value="<?php echo $listadoClientesID->longitud_cliente; ?>" required >     
+    <input type="hidden" name="longitud_cliente" id="longitud_cliente" class="form-control" value="<?php echo $listadoClientesID->longitud_cliente; ?>" required >
+    <input type="hidden" name="fk_id_ip" id="fk_id_ip" class="form-control" value="<?php echo $listadoClientesID->fk_id_ip; ?>" required >     
     <br>
     <b>CEDULA DEL CLIENTE: </b>
    <br>

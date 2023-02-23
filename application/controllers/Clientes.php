@@ -59,10 +59,53 @@
             $this->load->view('footer');
         }
 
-        public function deudoresClientes(){
-            $data["listadoClientes"]=$this->cliente->clientes_sin_pagos();;
+
+        public function reporteCliente(){
+            $cedula=$this->input->post("cedula_cliente");
+            $existe_cedula = $this->cliente->existe_cedula($cedula);
+            if ($existe_cedula) {
+                $dato=array($this->cliente->consultarPorCedula($cedula));
+            $objeto = $dato[0];
+            $id_cliente = $objeto->id_cliente;
+            $cedula_cliente = $objeto->cedula_cliente;
+            $objeto1 = $dato[0];
+            $id_plan = $objeto1->fk_id_plan;
+            redirect("clientes/reposrteDetalleCliente/$id_cliente/$id_plan");
+            } else {
+                $this->session->set_flashdata("actualizacion1","Datos del cliente actualizados correctamente");                
+                redirect("reportes/reporteFechas");
+            }
+
+        }
+
+        public function reposrteDetalleCliente($id_cliente,$id_plan){
+        $data["totalDineroEfectivo"]=$this->cliente->efectivo($id_cliente);
+        $data["totalDineroDeposito"]=$this->cliente->deposito($id_cliente);
+        $data["totalDineroTransferencia"]=$this->cliente->transferencia($id_cliente);
+            $data["listadoClientesID"]=$this->cliente->consultarPorId($id_cliente);
+            $data["listadoCobros"]=$this->cobro->consultarPorCliente($id_cliente);
+            $data["listadoPlanesID"]=$this->plan->consultarPorId($id_plan); 
+            $data["mesesPagados"]=$this->cobro->consultarPorCliente($id_cliente);
+            //cantidad de dinero por cuentas
+        $data["B1"]=$this->cliente->cantidadDineroB1($id_cliente);
+        $data["B2"]=$this->cliente->cantidadDineroB2($id_cliente);
+        $data["B3"]=$this->cliente->cantidadDineroB3($id_cliente);
+        $data["B4"]=$this->cliente->cantidadDineroB4($id_cliente);
+        $data["B5"]=$this->cliente->cantidadDineroB5($id_cliente);
+        $data["B6"]=$this->cliente->cantidadDineroB6($id_cliente);
+        $data["B7"]=$this->cliente->cantidadDineroB7($id_cliente);
+        $data["B8"]=$this->cliente->cantidadDineroB8($id_cliente);
+        $data["B9"]=$this->cliente->cantidadDineroB9($id_cliente);
+        //----------------------------------------------------------------
+        $dataPlan=array($this->plan->consultarPorId($id_plan));
+        $objetoPlan = $dataPlan[0];
+        $precio=$objetoPlan->precio_plan;
+        $nombre=$objetoPlan->detalles_plan;
+        $data["precioPlan"]=$precio;
+        $data["nombrePlan"]=$nombre;
+        $data["mesesCancelados"]=$this->cliente->cantidadPagos($id_cliente);
             $this->load->view('header');
-            $this->load->view("clientes/deudoresClientes",$data); 
+            $this->load->view("clientes/reposrteDetalleCliente",$data); 
             $this->load->view('footer');
         }
 
@@ -130,7 +173,7 @@
              $idPlan=$this->input->post("fk_id_plan");
              $dataPlan=array($this->plan->consultarPorId($idPlan));
              $objetoPlan = $dataPlan[0];
-             $megasE = $objetoPlan->meg_sub_plan*1000;
+             $megasE = $objetoPlan->meg_sub_plan*1000; 
              $megasBjE = $objetoPlan->meg_baj_plan;
             $datosEditarClientes=array(
                 "cedula_cliente"=>$this->input->post("cedula_cliente"), 

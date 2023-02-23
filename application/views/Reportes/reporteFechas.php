@@ -184,6 +184,7 @@ $totalPagados =   $pagadosCant - $totalClientes;
                     </div>
                 </div>
             </div>
+
             <div class="container-fluid pt-4 px-4">
             <form action="<?php echo site_url(); ?>/reportes/reporteVista" method="post" enctype="multipart/form-data">
                 <div class="row g-4">
@@ -215,12 +216,47 @@ $totalPagados =   $pagadosCant - $totalClientes;
             </form>
             </div>
 
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    
+                    <div class="col-sm-12 col-xl-12 " >
+                        <div class="bg-secondary rounded p-4 text-dark text-center">
+                            Ingrese el número de cédula o pasaporte del cliente
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4">
+            <form action="<?php echo site_url(); ?>/clientes/reporteCliente" method="post" enctype="multipart/form-data" id="fr_cliente">
+                <div class="row g-2">
+                    <div class="col-sm-6 col-xl-8">
+                        <div class="bg-secondary rounded p-4 text-dark text-center">
+                            <div class="ms-3">
+                                <p class="mb-1">Ingrese el número de cédula o pasaporte</p>
+                                <input type="text" class="form-control" name="cedula_cliente" id= "cedula_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
+                                <div id="error-message" class="text-danger"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-secondary rounded p-4 text-dark text-center">
+                        <p class="mb-2"></p>
+                            <button type="submit" name="button"  class="btn btn-success m-2">ACEPTAR</a></button>
+                        </div>
+                    </div>
+                      
+                </div>
+            </form>
+            </div>
+            
+            
+            
+            
+
             <br>
             </div>
         <!-- Content End -->
-
-        
-
 <script>
     var graficoCircular1 = new Chart($("#graficoCircular1"), {
   type: "pie",
@@ -347,7 +383,7 @@ const $graficaDineroFormasPago = document.querySelector("#graficaDineroFormasPag
 const etiquetasDineroFormasPago = ["Efectivo", "Transferencia ", "Deposito"]
 // Podemos tener varios conjuntos de datos. Comencemos con uno
 const datosDineroFormasPago = {
-    label: "DINERO POR CADA FORMA DE PAGO",
+    label: "DINERO REGISTRADO POR FORMA DE PAGO",
     data: [<?php echo round($totalDineroEfectivo); ?>, <?php echo round($totalDineroTransferencia); ?>, <?php echo round($totalDineroDeposito); ?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
     backgroundColor: [
         "#15D629",
@@ -383,7 +419,7 @@ const $graficaCuentas = document.querySelector("#graficaCuentas");
 const etiquetasCuentas = ["Pichincha Cta. 2200000940", "Pichincha Cta. 6010218000", "Guayaquil Cta. 7633119","Guayaquil Cta. 21540468","Chibuleo Cta. 09187442100","Mushuc Runa Cta. 44600033252","Ambato Cta. 044611005290","Produbanco Cta. 12081071685","Cotopaxi Cta. 297811212370"]
 // Podemos tener varios conjuntos de datos. Comencemos con uno
 const datosCuentas = {
-    label: "DINERO POR CUENTAS",
+    label: "DINERO REGISTRADO POR CUENTAS",
     data: [
     <?php if($B1<1){
         $B1=0;

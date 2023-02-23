@@ -73,15 +73,15 @@
     <br>
     <b>NOMBRES DEL CLIENTE: </b>
     <br>
-    <input type="text" class="form-control" name="nombre_cliente" id= "nombre_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
+    <input type="text" class="form-control" name="nombre_cliente" id= "nombre_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off" onkeyup="javascript:this.value=this.value.toUpperCase();">
     <br>
     <b>APELLIDOS DEL CLIENTE: </b>
     <br>
-    <input type="text" class="form-control" name="apellido_cliente" id= "apellido_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
+    <input type="text" class="form-control" name="apellido_cliente" id= "apellido_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off" onkeyup="javascript:this.value=this.value.toUpperCase();">
     <br>
     <b>DIRECCIÓN DEL CLIENTE: </b>
     <br>
-    <input type="text" class="form-control" name="direccion_cliente" id= "direccion_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
+    <input type="text" class="form-control" name="direccion_cliente" id= "direccion_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off" onkeyup="javascript:this.value=this.value.toUpperCase();">
     <br>
     <b>CELULAR DEL CLIENTE: </b>
     <br>
@@ -89,7 +89,7 @@
     <br>
     <b>CORREO DEL CLIENTE: </b>
     <br>
-    <input type="email" class="form-control"  name="correo_cliente" id= "correo_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off">
+    <input type="email" class="form-control"  name="correo_cliente" id= "correo_cliente"value="" placeholder="Rellene este espacio" class="form-control input-sm " required autocomplete="off" onkeyup="javascript:this.value=this.value.toUpperCase();">
     <br>
     <div id="map" style="height: 100px; width: 100%; "></div>    
     <input type="hidden" class="form-control"  name="longitud_cliente" id= "longitud_cliente"value=""  class="form-control input-sm " >
