@@ -892,7 +892,7 @@ function list(array_list)
  function campo(){
    $("#aqui").removeClass('hidden');
    //$(".box--oculto").addClass('hidden');
-	var hola = '<div class="control_label"><label for="estudiante_de">Ingrese el numero de documento</label></div><div class="control_input"><input class="form-control mb-3" type="text" aria-label="default input example" name="documento_pago" id="documento_pago" required autocomplete="off"></div>';
+	var hola = '<div class="control_label"><label for="estudiante_de">Ingrese el numero de documento</label></div><div class="control_input"><input class="form-control" type="number" aria-label="default input example" name="documento_pago" id="documento_pago" required autocomplete="off"></div>';
     $("#aqui").html(hola);
    
  }
@@ -912,7 +912,7 @@ function list(array_list)
 <script>
     $("#formulario_nuevo_cobro").validate({
     		rules:{
-    			documento_pago:{
+    			documento_pago:{ 
     				required:true,
                     remote:{
                         url:"<?php echo site_url('cobros/validarDocumentoExistente'); ?>",
